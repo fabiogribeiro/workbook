@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{domain}', function($domain) {
+    return ['domain' => $domain];
+});
+Route::get('/{domain}/{subject}', function($domain, $subject) {
+    return ['domain' => $domain, 'subject' => $subject];
+});
+Route::get('/{domain}/{subject}/{challenge}', function($domain, $subject, $challenge) {
+    return ['domain' => $domain, 'subject' => $subject, 'challenge' => $challenge];
+});
