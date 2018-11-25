@@ -4,7 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-          Challenges index page
+            @foreach ($challenges as $challenge)
+                <h2>{{ $challenge->title }}</h2>
+                <h3>{{ $challenge->answer }}</h3>
+                <p>{{ $challenge->body }}</p>
+            @endforeach
         </div>
     </div>
 </div>

@@ -18,4 +18,26 @@ class SubjectsController extends Controller
 
         return view('dashboard', ['subjects' => $subjects]);
     }
+    public function new()
+    {
+        return view('subjects.new');
+    }
+
+    public function create(Request $request)
+    {
+        $subject = new Subject;
+
+        $subject->title = $request->title;
+        $subject->domain = $request->domain;
+        $subject->slug = str_slug($request->title);
+
+        $subject->save();
+
+        return redirect(route('dashboard'));
+    }
+
+    public function show(Subject $subject)
+    {
+        return view('subjects.show', ['subject' => $subject]);
+    }
 }
