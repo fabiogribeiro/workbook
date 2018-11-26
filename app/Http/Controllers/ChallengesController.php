@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Challenge;
+use App\Subject;
 
 class ChallengesController extends Controller
 {
@@ -14,7 +15,7 @@ class ChallengesController extends Controller
         return view('challenges.index', ['challenges' => $challenges]);
     }
 
-    public function show(Challenge $challenge)
+    public function show($domain, Subject $subject, Challenge $challenge)
     {
         return view('challenges.show', ['challenge' => $challenge]);
     }

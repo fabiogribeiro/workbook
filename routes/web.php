@@ -25,8 +25,7 @@ Route::get('/subjects/show/{subject}', 'SubjectsController@show')->name('subject
 Route::post('/subjects/create', 'SubjectsController@create')->name('subjects.create');
 
 Route::get('/challenges/new', 'ChallengesController@new');
-Route::get('/challenges/show/{challenge}', 'ChallengesController@show')->name('challenges.show');
 Route::post('/challenges/create', 'ChallengesController@create')->name('challenges.create');
 
 Route::get('/{domain}/{subject}', 'ChallengesController@index')->name('challenges.index');
-Route::get('/{domain}/{subject}/{challenge}', 'ChallengesController@show');
+Route::get('/{domain}/{subject}/{challenge}', 'ChallengesController@show')->name('challenges.show');
