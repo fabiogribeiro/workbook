@@ -12,3 +12,16 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.dashboard-panel {
+  padding-top: 2.7rem;
+}
+
+.dashboard-item {
+  border-bottom: 1px solid #bebebe;
+  padding-top: 20px;
+
+  &:last-child {
+    border: none;
+  }
+}

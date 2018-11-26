@@ -7,16 +7,33 @@ use App\Subject;
 
 class SubjectsController extends Controller
 {
+    private $allDomains;
+
+    public function __construct()
+    {
+        $this->allDomains = ['math', 'physics', 'chemistry'];
+    }
+
     /**
+     * 
      * Show the dashboard containing all subjects
      * 
      * @return \Http\Illuminate\Response
     */
     public function index()
     {
-        $subjects = Subject::all();
+        $allSubjects = Subject::all();
+        $organized = array();
 
-        return view('dashboard', ['subjects' => $subjects]);
+        foreach ($this->allDomains as $domain) {
+            $organized[$domain] = [];
+        }
+
+        foreach($allSubjects as $subject) {
+            $organized[$subject->domain][] = $subject;
+        }
+
+        return view('dashboard', ['subjects' => $organized, 'domains' => $this->allDomains]);
     }
     public function new()
     {

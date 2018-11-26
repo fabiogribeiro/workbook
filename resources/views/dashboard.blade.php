@@ -2,13 +2,19 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            @foreach ($subjects as $subject)
-                <h3>{{ $subject->title }}</h3>
-                <p>{{ $subject->domain }}</p>
-            @endforeach
-        </div>
+    <div class="dashboard-panel">
+        @foreach ($domains as $domain)
+            <div class="dashboard-item">
+                <h1> {{ title_case($domain) }} </h1>
+                <ul class="list-inline">
+                @foreach ($subjects[$domain] as $subject)
+                    <li class="list-inline-item">
+                        <a href="{{ route('challenges.index', ['domain' => $domain, 'subject' => $subject->slug]) }}">{{ $subject->title }}</a>
+                    </li>
+                @endforeach
+                </ul>
+            </div>
+        @endforeach
     </div>
 </div>
 @endsection

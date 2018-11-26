@@ -10472,3 +10472,16 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.dashboard-panel {
+  padding-top: 2.7rem;
+}
+
+.dashboard-item {
+  border-bottom: 1px solid #bebebe;
+  padding-top: 20px;
+}
+
+.dashboard-item:last-child {
+  border: none;
+}
+
