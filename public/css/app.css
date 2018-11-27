@@ -10485,3 +10485,7 @@ a.text-dark:focus {
   border: none;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
