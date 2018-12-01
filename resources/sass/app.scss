@@ -26,6 +26,12 @@
   }
 }
 
+.list-group-item.active {
+  a {
+    color: white;
+  }
+}
+
 a {
   &:hover {
     text-decoration: none;

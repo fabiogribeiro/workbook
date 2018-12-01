@@ -10485,6 +10485,10 @@ a.text-dark:focus {
   border: none;
 }
 
+.list-group-item.active a {
+  color: white;
+}
+
 a:hover {
   text-decoration: none;
 }
