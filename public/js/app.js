@@ -47610,6 +47610,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['baseUrl', 'apiUrl', 'activeInit', 'allItems'],
@@ -47619,11 +47620,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       activeItem: this.activeInit
     };
   },
+  computed: {
+    firstLoadComplete: function firstLoadComplete() {
+      return this.apiData.length > 0;
+    }
+  },
   methods: {
     updateData: function updateData(item) {
       var shouldPush = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
-      if (this.activeItem.id === item.id && this.apiData.length != 0) return;
+      if (this.firstLoadComplete && this.activeItem.id === item.id) return;
 
       var vm = this;
 
@@ -47639,6 +47645,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   mounted: function mounted() {
     var vm = this;
+
+    vm.$slots.header[0].elm.hidden = false; // Hack to prevent header showing before page load
 
     vm.updateData(this.activeItem, false);
 

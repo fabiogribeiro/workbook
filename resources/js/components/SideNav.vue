@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col-md-2">
         <ul class="list-unstyled">
-          <slot name="header"></slot>
+          <slot name="header">
+          </slot>
           <li
             v-for="item in allItems"
             :key="item.id"
@@ -35,9 +36,14 @@ export default {
       activeItem: this.activeInit
     }
   },
+  computed: {
+    firstLoadComplete: function() {
+      return this.apiData.length > 0
+    }
+  },
   methods: {
     updateData: function(item, shouldPush = true) {
-      if (this.activeItem.id === item.id && this.apiData.length != 0) return
+      if (this.firstLoadComplete && this.activeItem.id === item.id) return
 
       var vm = this;
 
@@ -55,6 +61,8 @@ export default {
   },
   mounted: function() {
     var vm = this
+
+    vm.$slots.header[0].elm.hidden = false  // Hack to prevent header showing before page load
 
     vm.updateData(this.activeItem, false)
 
