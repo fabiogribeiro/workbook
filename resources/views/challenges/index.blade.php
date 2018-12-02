@@ -13,8 +13,11 @@
         <subject-item v-bind:item="item"></subject-item>
     </template>
 
-    <template slot="main-content" slot-scope="{ data }">
-        <challenges-list v-bind:data="data"></challenges-list>
+    <template slot="main-content" slot-scope="{ apiData, activeItem }">
+        <challenges-list
+            v-bind:api-data="apiData"
+            v-bind:active-item="activeItem"
+        ></challenges-list>
     </template>
 </side-nav>
 @endsection

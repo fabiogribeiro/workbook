@@ -17,7 +17,11 @@
           </li>
         </ul>
       </div>
-      <slot v-bind:data="apiData" name="main-content"></slot>
+      <slot
+        v-bind:api-data="apiData"
+        v-bind:active-item="activeItem"
+        name="main-content"
+      ></slot>
     </div>
   </div>
 </template>
