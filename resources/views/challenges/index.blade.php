@@ -7,7 +7,7 @@
     v-bind:active-init="{{ $activeSubject }}"
     v-bind:all-items="{{ $subjects }}"
 >
-    <p hidden slot="header">{{ title_case($activeSubject->domain) }}</p>
+    <p hidden slot="header">{{ title_case(__('domains.' . $activeSubject->domain)) }}</p>
 
     <template slot-scope="{ item }">
         <subject-item v-bind:item="item"></subject-item>

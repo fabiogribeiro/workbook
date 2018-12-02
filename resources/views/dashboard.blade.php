@@ -5,7 +5,7 @@
     <div class="dashboard-panel">
         @foreach ($domains as $domain)
             <div class="dashboard-item">
-                <h1> {{ title_case($domain) }} </h1>
+                <h1> {{ title_case(__('domains.' . $domain)) }} </h1>
                 <ul class="list-inline">
                 @foreach ($subjects[$domain] as $subject)
                     <li class="list-inline-item">
