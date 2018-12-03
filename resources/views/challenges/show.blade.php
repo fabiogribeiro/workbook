@@ -4,9 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2> {{ $challenge->title }} </h2>
-            <h3> {{ $challenge->answer }} </h3>
-            <p> {{ $challenge->body }} </p>
+            <show-challenge
+                title="{{ $challenge->title }}"
+                body="{{ $challenge->body }}"
+            ></show-challenge>
         </div>
     </div>
 </div>
