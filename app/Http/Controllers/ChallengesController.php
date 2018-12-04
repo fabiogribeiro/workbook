@@ -36,6 +36,7 @@ class ChallengesController extends Controller
         $challenge->answer = $request->answer;
         $challenge->slug = str_slug($request->title);
         $challenge->subject_id = $subject->id;
+        $challenge->skill = $request->skill;
 
         $challenge->save();
 
