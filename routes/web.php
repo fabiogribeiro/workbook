@@ -19,13 +19,21 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+/**
+ * 
+ * Internal routes meant for administration
+ * 
+*/
+Route::prefix('internal')->group(function() {
+    Route::get('/subjects/new', 'SubjectsController@new');
+    Route::get('/subjects/show/{subject}', 'SubjectsController@show')->name('subjects.show');
+    Route::post('/subjects/create', 'SubjectsController@create')->name('subjects.create');
+
+    Route::get('/challenges/new', 'ChallengesController@new');
+    Route::post('/challenges/create', 'ChallengesController@create')->name('challenges.create');
+});
+
 Route::get('/dashboard', 'SubjectsController@index')->name('dashboard');
-Route::get('/subjects/new', 'SubjectsController@new');
-Route::get('/subjects/show/{subject}', 'SubjectsController@show')->name('subjects.show');
-Route::post('/subjects/create', 'SubjectsController@create')->name('subjects.create');
-
-Route::get('/challenges/new', 'ChallengesController@new');
-Route::post('/challenges/create', 'ChallengesController@create')->name('challenges.create');
-
 Route::get('/{domain}/{subject}', 'ChallengesController@index')->name('challenges.index');
 Route::get('/{domain}/{subject}/{challenge}', 'ChallengesController@show')->name('challenges.show');
