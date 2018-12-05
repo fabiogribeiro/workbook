@@ -47715,7 +47715,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\nli[data-v-3a45a159] {\n  font-size: 28px;\n}\n", ""]);
+exports.push([module.i, "\nli[data-v-3a45a159] {\n  font-size: 28px;\n}\n.card[data-v-3a45a159] {\n  margin-bottom: 25px;\n}\n", ""]);
 
 // exports
 
@@ -47770,6 +47770,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['apiData', 'activeItem'],
   computed: {
@@ -47788,12 +47792,29 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "ul",
-    _vm._l(_vm.apiData, function(challenge) {
-      return _c("li", { key: challenge.id, staticClass: "list-unstyled" }, [
-        _c("a", { attrs: { href: _vm.baseUrl + challenge.slug } }, [
-          _vm._v(_vm._s(challenge.title))
-        ])
+    "div",
+    { staticClass: "col-md-8" },
+    _vm._l(_vm.apiData, function(challenges, skill) {
+      return _c("div", { key: skill, staticClass: "card" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _vm._v("\n      " + _vm._s(skill) + "\n    ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { staticClass: "list-group list-group-flush" },
+          _vm._l(challenges, function(challenge) {
+            return _c(
+              "li",
+              { key: challenge.id, staticClass: "list-group-item" },
+              [
+                _c("a", { attrs: { href: _vm.baseUrl + challenge.slug } }, [
+                  _vm._v(_vm._s(challenge.title))
+                ])
+              ]
+            )
+          })
+        )
       ])
     })
   )

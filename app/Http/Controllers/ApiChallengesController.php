@@ -11,6 +11,12 @@ class ApiChallengesController extends Controller
     {
         $challenges = Challenge::where('subject_id', $subject_id)->get();
 
-        return $challenges;
+        $challengesBySkill = array();
+
+        foreach ($challenges as $challenge) {
+            $challengesBySkill[$challenge->skill][] = $challenge;
+        }
+
+        return $challengesBySkill;
     }
 }
