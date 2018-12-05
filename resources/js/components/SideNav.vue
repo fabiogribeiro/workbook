@@ -29,16 +29,16 @@
 
 <script>
 export default {
-  props: ['baseUrl', 'apiUrl', 'activeInit', 'allItems'],
+  props: ['baseUrl', 'apiUrl', 'activeInit', 'allItems', 'initialData'],
   data: function() {
     return {
-      apiData: [],
+      apiData: this.initialData,
       activeItem: this.activeInit
     }
   },
   computed: {
     firstLoadComplete: function() {
-      return this.apiData.length > 0
+      return !!this.apiData
     }
   },
   methods: {

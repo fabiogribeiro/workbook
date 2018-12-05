@@ -48008,7 +48008,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['title', 'body']
+  props: ['apiData', 'activeItem']
 });
 
 /***/ }),
@@ -48020,9 +48020,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v(_vm._s(_vm.title))]),
+    _c("h1", [_vm._v(_vm._s(_vm.apiData.title))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.body))])
+    _c("p", [_vm._v(_vm._s(_vm.apiData.body))])
   ])
 }
 var staticRenderFns = []
@@ -48118,16 +48118,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['baseUrl', 'apiUrl', 'activeInit', 'allItems'],
+  props: ['baseUrl', 'apiUrl', 'activeInit', 'allItems', 'initialData'],
   data: function data() {
     return {
-      apiData: [],
+      apiData: this.initialData,
       activeItem: this.activeInit
     };
   },
   computed: {
     firstLoadComplete: function firstLoadComplete() {
-      return this.apiData.length > 0;
+      return !!this.apiData;
     }
   },
   methods: {

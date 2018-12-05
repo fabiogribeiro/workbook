@@ -19,4 +19,11 @@ class ApiChallengesController extends Controller
 
         return $challengesBySkill;
     }
+
+    public function show($challenge_id)
+    {
+        $challenge = Challenge::find($challenge_id); 
+
+        return $challenge;
+    }
 }
