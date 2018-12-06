@@ -21,7 +21,7 @@ class ChallengesController extends Controller
                             ->get()
                             ->makeHidden(['body', 'updated_at', 'created_at', 'subject_id', 'skill']); // Hide everything not needed
 
-        return view('challenges.show', ['subject' => $subject, 'challenge' => $challenge, 'otherChallenges' => $otherChallenges->makeHidden('body')]);
+        return view('challenges.show', ['subject' => $subject, 'challenge' => $challenge, 'otherChallenges' => $otherChallenges]);
     }
 
     public function new()
