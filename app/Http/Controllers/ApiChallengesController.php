@@ -26,4 +26,11 @@ class ApiChallengesController extends Controller
 
         return $challenge;
     }
+
+    public function solve(Request $request)
+    {
+        $challenge = Challenge::find($request->challengeId);
+
+        return ['result' => $challenge->answer === $request->answer];
+    }
 }
