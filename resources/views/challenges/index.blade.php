@@ -6,6 +6,7 @@
     api-url="/api/challenges/"
     v-bind:active-init="{{ $activeSubject }}"
     v-bind:all-items="{{ $subjects }}"
+    v-bind:initial-data="{{ json_encode($challengesBySkill) }}"
 >
     <p hidden slot="header">{{ title_case(__('domains.' . $activeSubject->domain)) }}</p>
 

@@ -11,8 +11,15 @@ class ChallengesController extends Controller
     public function index($domain, Subject $subject)
     {
         $subjects = Subject::where('domain', $subject->domain)->get();
+        $challenges = Challenge::where('subject_id', $subject->id)->get();
 
-        return view('challenges.index', ['activeSubject' => $subject, 'subjects' => $subjects]);
+        $challengesBySkill = array();
+
+        foreach ($challenges as $challenge) {
+            $challengesBySkill[$challenge->skill][] = $challenge;
+        }
+
+        return view('challenges.index', ['activeSubject' => $subject, 'subjects' => $subjects, 'challengesBySkill' => $challengesBySkill]);
     }
 
     public function show($domain, Subject $subject, Challenge $challenge)
