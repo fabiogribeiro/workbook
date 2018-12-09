@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
  * Internal routes meant for administration
  * 
 */
-Route::prefix('internal')->group(function() {
+Route::prefix('internal')->middleware('can:access-internal')->group(function() {
     Route::get('/subjects/new', 'SubjectsController@new');
     Route::get('/subjects/show/{subject}', 'SubjectsController@show')->name('subjects.show');
     Route::post('/subjects/create', 'SubjectsController@create')->name('subjects.create');
