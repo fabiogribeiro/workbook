@@ -14,7 +14,7 @@ class CreateLangColumn extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-           $table->string('lang', 32)->default('en'); 
+           $table->string('lang', 32)->default('en');
         });
     }
 
