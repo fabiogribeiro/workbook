@@ -30,7 +30,21 @@ class ApiChallengesController extends Controller
     public function solve(Request $request)
     {
         $challenge = Challenge::find($request->challengeId);
+        $user = $request->user();
 
-        return ['result' => $challenge->answer === $request->answer];
+        if ($challenge) {
+            // NOTE: Move into queued job if slow
+            $solved_challenges = $user->solved_challenges;
+
+            $solved_challenges[] = $challenge_id;
+            $solved_challenges = array_unique($solved_challenges);
+
+            $user->solved_challenges = $solved_challenges;
+            $user->save();
+
+            return ['result' => true];
+        }
+
+        return ['result' => false];
     }
 }
