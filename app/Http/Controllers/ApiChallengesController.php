@@ -29,14 +29,14 @@ class ApiChallengesController extends Controller
 
     public function solve(Request $request)
     {
-        $challenge = Challenge::find($request->challengeId);
+        $challenge = Challenge::where('id', $request->challengeId)->first();
         $user = $request->user();
 
         if ($challenge) {
-            // NOTE: Move into queued job if slow
+            // NOTE: Move into a job when there's chance of being slow
             $solved_challenges = $user->solved_challenges;
 
-            $solved_challenges[] = $challenge_id;
+            $solved_challenges[] = $challenge->id;
             $solved_challenges = array_unique($solved_challenges);
 
             $user->solved_challenges = $solved_challenges;
