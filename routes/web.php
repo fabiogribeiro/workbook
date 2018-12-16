@@ -32,6 +32,10 @@ Route::prefix('internal')->middleware('can:access-internal')->group(function() {
 
     Route::get('/challenges/new', 'ChallengesController@new');
     Route::post('/challenges/create', 'ChallengesController@create')->name('challenges.create');
+
+    Route::get('/passportclients', function() {
+        return view('clientmanager');
+    });
 });
 
 Route::get('/dashboard', 'SubjectsController@index')->name('dashboard');
