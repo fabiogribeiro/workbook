@@ -11,7 +11,10 @@
           <ul class="list-unstyled">
             @foreach ($challenges as $challenge)
               <li class="list-item">
-                <a href="/">
+                <a href="{{ route('challenges.show',
+                              ['domain' => $challenge->subject->domain,
+                              'subject' => $challenge->subject->slug,
+                              'challenge' => $challenge->slug]) }}">
                   {{ $challenge->title }}
                 </a>
               </li>

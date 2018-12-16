@@ -15,4 +15,12 @@ class Challenge extends Model
     {
         return 'slug';
     }
+
+    /**
+     * Get the subject for this challenge
+     */
+    public function subject()
+    {
+        return $this->belongsTo('App\Subject');
+    }
 }

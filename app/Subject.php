@@ -15,4 +15,12 @@ class Subject extends Model
     {
         return 'slug';
     }
+
+    /**
+     * Get the challenges in this subject
+     */
+    public function challenges()
+    {
+        return $this->hasMany('App\Challenge');
+    }
 }

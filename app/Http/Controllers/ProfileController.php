@@ -10,7 +10,8 @@ class ProfileController extends Controller
     public function show(Request $request)
     {
         $challengeIds = $request->user()->solved_challenges;
-        $challenges = Challenge::find($challengeIds);
+        $challenges = Challenge::with('subject:id,slug,domain')
+                                ->find($challengeIds);
 
         return view('profile', ['challenges' => $challenges]);
     }
