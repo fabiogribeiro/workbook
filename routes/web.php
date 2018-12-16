@@ -38,6 +38,7 @@ Route::prefix('internal')->middleware('can:access-internal')->group(function() {
     });
 });
 
+Route::get('/profile', 'ProfileController@show')->name('profile');
 Route::get('/dashboard', 'SubjectsController@index')->name('dashboard');
 Route::get('/{domain}/{subject}', 'ChallengesController@index')->name('challenges.index');
 Route::get('/{domain}/{subject}/{challenge}', 'ChallengesController@show')->name('challenges.show');
