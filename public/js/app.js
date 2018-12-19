@@ -14385,6 +14385,13 @@ if (token) {
 
 window.marked = __webpack_require__(85);
 /**
+ * Sanitize HTML by default in case user input is parsed
+ */
+
+window.marked.setOptions({
+  sanitize: true
+});
+/**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
@@ -48023,8 +48030,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['apiData', 'activeItem']
+  props: ['apiData', 'activeItem'],
+  computed: {
+    finalHTML: function finalHTML() {
+      return marked(this.apiData.body);
+    }
+  }
 });
 
 /***/ }),
@@ -48042,7 +48055,7 @@ var render = function() {
       _c("div", { key: _vm.apiData.id }, [
         _c("h1", [_vm._v(_vm._s(_vm.apiData.title))]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.apiData.body))])
+        _c("div", { domProps: { innerHTML: _vm._s(_vm.finalHTML) } })
       ])
     ]
   )
