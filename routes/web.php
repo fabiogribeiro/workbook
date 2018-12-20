@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'StaticController@index');
+
+Route::put('/lang', 'StaticController@changeLang')->name('lang');
 
 Auth::routes();
 
