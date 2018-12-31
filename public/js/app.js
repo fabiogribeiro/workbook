@@ -49713,7 +49713,7 @@ var render = function() {
     "transition",
     { attrs: { appear: "", name: "fade", mode: "out-in" } },
     [
-      _c("div", { key: _vm.apiData.id }, [
+      _c("div", { key: _vm.apiData.id, staticClass: "col-md-5 offset-md-1" }, [
         _c("h1", [_vm._v(_vm._s(_vm.apiData.title))]),
         _vm._v(" "),
         _c("div", { domProps: { innerHTML: _vm._s(_vm.finalHTML) } })

@@ -1,6 +1,6 @@
 <template>
   <transition appear name="fade" mode="out-in">
-    <div v-bind:key="apiData.id">
+    <div class="col-md-5 offset-md-1" v-bind:key="apiData.id">
       <h1>{{ apiData.title }}</h1>
       <div v-html="finalHTML">
       </div>

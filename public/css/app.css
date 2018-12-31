@@ -10472,17 +10472,38 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.dashboard-panel {
-  padding-top: 2.7rem;
+.subjects-container h4 {
+  color: #333;
+  margin-bottom: 33px;
+  border-bottom: 2px solid #38C173;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
-.dashboard-item {
-  border-bottom: 1px solid #bebebe;
+.subjects-panel {
+  padding-bottom: 26px;
+}
+
+.subjects-item {
   padding-top: 20px;
+  margin-bottom: 20px;
 }
 
-.dashboard-item:last-child {
+.subjects-item:last-child {
   border: none;
+}
+
+.subjects-item li {
+  width: 45%;
+  vertical-align: text-top;
+}
+
+@media (min-width: 768px) {
+  .subjects-item li {
+    width: 20%;
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
 }
 
 .list-group-item.active a {
@@ -10491,5 +10512,25 @@ a.text-dark:focus {
 
 a:hover {
   text-decoration: none;
+}
+
+.home {
+  padding-top: 100px;
+}
+
+.home p {
+  font-size: 1.5rem;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  color: #777;
+}
+
+.home h1 {
+  font-size: 4rem;
+}
+
+.home button {
+  min-width: 200px;
+  color: white;
 }
 

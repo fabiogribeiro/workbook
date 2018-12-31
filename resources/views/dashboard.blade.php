@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="dashboard-panel">
+<div class="container subjects-container" style="padding-top: 26px;">
+    <h4>Subjects</h4>
+    <div class="subjects-panel">
         @foreach ($domains as $domain)
-            <div class="dashboard-item">
+            <div class="subjects-item">
                 <h1> {{ title_case(__('domains.' . $domain)) }} </h1>
                 <ul class="list-inline">
                 @foreach ($subjects[$domain] as $subject)
