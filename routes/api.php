@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/challenges/{subject_id}', 'ApiChallengesController@index');
-Route::get('/challenge/{challenge_id}', 'ApiChallengesController@show');
+Route::get('/challenges/{subject}', 'ApiChallengesController@index');
+Route::get('/challenge/{challenge}', 'ApiChallengesController@show');
 
 Route::middleware('auth:api')->put('/challenge/solve', 'ApiChallengesController@solve');

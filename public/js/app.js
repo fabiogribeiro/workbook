@@ -49831,7 +49831,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var shouldPush = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
       if (this.firstLoadComplete && this.activeItem.id === item.id) return;
       var vm = this;
-      axios.get(this.apiUrl + item.id).then(function (response) {
+      axios.get(this.apiUrl + item.slug).then(function (response) {
         vm.apiData = response.data;
         vm.activeItem = item;
         if (shouldPush) history.pushState(item, '', item.slug);

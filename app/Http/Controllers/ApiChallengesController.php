@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Challenge;
+use App\Subject;
 
 class ApiChallengesController extends Controller
 {
-    public function index($subject_id)
+    public function index(Subject $subject)
     {
-        $challenges = Challenge::where('subject_id', $subject_id)->get();
+        $challenges = Challenge::where('subject_id', $subject->id)->get();
 
         $challengesBySkill = array();
 
@@ -20,10 +21,8 @@ class ApiChallengesController extends Controller
         return $challengesBySkill;
     }
 
-    public function show($challenge_id)
+    public function show(Challenge $challenge)
     {
-        $challenge = Challenge::find($challenge_id); 
-
         return $challenge;
     }
 

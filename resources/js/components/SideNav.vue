@@ -47,7 +47,7 @@ export default {
 
       var vm = this;
 
-      axios.get(this.apiUrl + item.id)
+      axios.get(this.apiUrl + item.slug)
         .then(function (response) {
           vm.apiData = response.data
           vm.activeItem = item
