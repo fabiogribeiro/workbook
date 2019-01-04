@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Challenge;
 use App\Subject;
+
+use App\Jobs\GetChallengesBySkill;
 
 class ApiChallengesController extends Controller
 {
     public function index(Subject $subject)
     {
-        $challenges = Challenge::where('subject_id', $subject->id)->get();
-
-        $challengesBySkill = array();
-
-        foreach ($challenges as $challenge) {
-            $challengesBySkill[$challenge->skill][] = $challenge;
-        }
-
-        return $challengesBySkill;
+        return GetChallengesBySkill::dispatchNow($subject);
     }
 
     public function show(Challenge $challenge)

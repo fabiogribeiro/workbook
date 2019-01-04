@@ -3,21 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Challenge;
 use App\Subject;
+
+use App\Jobs\GetChallengesBySkill;
+
 
 class ChallengesController extends Controller
 {
     public function index($domain, Subject $subject)
     {
         $subjects = Subject::where('domain', $subject->domain)->get();
-        $challenges = Challenge::where('subject_id', $subject->id)->get();
 
-        $challengesBySkill = array();
-
-        foreach ($challenges as $challenge) {
-            $challengesBySkill[$challenge->skill][] = $challenge;
-        }
+        $challengesBySkill = GetChallengesBySkill::dispatchNow($subject);
 
         return view('challenges.index', ['activeSubject' => $subject, 'subjects' => $subjects, 'challengesBySkill' => $challengesBySkill]);
     }
