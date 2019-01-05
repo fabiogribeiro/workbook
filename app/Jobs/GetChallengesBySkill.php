@@ -12,14 +12,14 @@ class GetChallengesBySkill
     use Dispatchable;
 
     /**
-     * Subject the challenges belong to
-     * 
-     * @var \App\Subject
+     * @var \App\Subject Subject the challenges belong to
      */
     private $SUBJECT;
 
     /**
-     * Create a new job instance.
+     * Create a new instance.
+     *
+     * @param \App\Subject $subject
      *
      * @return void
      */
@@ -29,9 +29,9 @@ class GetChallengesBySkill
     }
 
     /**
-     * Execute the job.
+     * Execute the job, synchronously.
      *
-     * @return void
+     * @return array An array of the form ['SkillName' => $challengesForSkill,...]
      */
     public function handle()
     {
