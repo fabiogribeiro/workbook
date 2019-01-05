@@ -4,8 +4,8 @@ namespace App\Jobs;
 
 use Illuminate\Foundation\Bus\Dispatchable;
 
-use App\Subject;
 use App\Challenge;
+use App\Subject;
 
 class GetChallengesBySkill
 {
@@ -17,13 +17,13 @@ class GetChallengesBySkill
     private $SUBJECT;
 
     /**
-     * Create a new instance.
+     * Create a new job instance.
      *
      * @param \App\Subject $subject
      *
      * @return void
      */
-    public function __construct(Subject $subject)
+    public function __construct($subject)
     {
         $this->SUBJECT = $subject;
     }
