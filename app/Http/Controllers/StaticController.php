@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Middleware\SetLocale;
+
 class StaticController extends Controller
 {
     public function index()
@@ -13,16 +15,7 @@ class StaticController extends Controller
 
     public function changeLang(Request $request)
     {
-        $lang = $request->lang;
-        $user = $request->user();
-
-        if ($user) {
-            $user->lang = $lang;
-            $user->save();
-        }
-        else {
-            $request->session()->put('lang', $lang);
-        }
+        SetLocale::recordPreference($request->lang);
 
         return back();
     }

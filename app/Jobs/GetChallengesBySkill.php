@@ -20,7 +20,6 @@ class GetChallengesBySkill
      * Create a new job instance.
      *
      * @param \App\Subject $subject
-     *
      * @return void
      */
     public function __construct($subject)

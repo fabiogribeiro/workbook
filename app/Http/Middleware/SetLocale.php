@@ -2,26 +2,42 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Auth;
+
 use Closure;
 
 class SetLocale
 {
     /**
+     * Set $lang as the new user preference
+     *
+     * @param string $lang
+     * @return void
+     */
+    public static function recordPreference($lang)
+    {
+        if (Auth::check()) {
+            Auth::user()->lang = $lang;
+            Auth::user()->save();
+        }
+        else {
+            session(['lang' => $lang]);
+        }
+    }
+
+    /**
      * Check whether a client has a language preference defined
      * and return it.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return mixed
+     * @return string|null
     */
-    private function getPreference($request)
+    private function getPreference()
     {
-        if ($request->user())
-            return $request->user()->lang;
+        if (Auth::check())
+            return Auth::user()->lang;
 
-        elseif ($request->session()->has('lang'))
-            return $request->session()->get('lang');
-
-        return null;
+        return session('lang');
     }
 
     /**
@@ -44,27 +60,16 @@ class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        $pref = $this->getPreference($request);
+        $lang = $this->getPreference();
 
-        if ($pref) {
-            app()->setLocale($pref);
-        }
-        else {
-            // Get HTTP_ACCEPT_LANGUAGE and guess it as a preference
-            // that can later be changed
-
+        if (!$lang) {
+            // Get HTTP_ACCEPT_LANGUAGE and guess it as the preference
             $lang = $this->getAcceptLanguage($request);
 
-            if ($request->user()) {
-                $request->user()->lang = $lang;
-                $request->user()->save();
-            }
-            else {
-                $request->session()->put('lang', $lang);
-            }
-
-            app()->setLocale($lang);
+            $this->recordPreference($lang);
         }
+
+        app()->setLocale($lang);
 
         return $next($request);
     }

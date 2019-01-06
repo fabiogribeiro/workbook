@@ -31,7 +31,6 @@ class SolveChallenge implements ShouldQueue
      *
      * @param int $challengeId
      * @param \App\User $user
-     *
      * @return void
      */
     public function __construct($challengeId, $user)
