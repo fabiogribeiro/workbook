@@ -3,17 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Subject;
+
+use App\Jobs\GetSubjectsByDomain;
 
 class SubjectsController extends Controller
 {
-    private $allDomains;
-
-    public function __construct()
-    {
-        $this->allDomains = ['math', 'physics', 'chemistry'];
-    }
-
     /**
      * 
      * Show the dashboard containing all subjects
@@ -22,18 +18,9 @@ class SubjectsController extends Controller
     */
     public function index()
     {
-        $allSubjects = Subject::all();
-        $organized = array();
+        $subjects = GetSubjectsByDomain::dispatchNow();
 
-        foreach ($this->allDomains as $domain) {
-            $organized[$domain] = [];
-        }
-
-        foreach($allSubjects as $subject) {
-            $organized[$subject->domain][] = $subject;
-        }
-
-        return view('dashboard', ['subjects' => $organized, 'domains' => $this->allDomains]);
+        return view('dashboard', ['subjects' => $subjects]);
     }
     public function new()
     {
