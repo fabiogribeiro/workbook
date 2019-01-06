@@ -14,12 +14,19 @@
 }
 
 .subjects-container {
+  padding-top: 50px;
+
   h4 {
     color: #333; margin-bottom: 33px;
     border-bottom: 2px solid #38C173;
     display: inline-block;
     padding-bottom: 5px;
   }
+}
+
+.index-subjects-container {
+  background-color: #efefef;
+  margin-top: 160px;
 }
 
 .subjects-panel {

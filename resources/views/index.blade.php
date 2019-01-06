@@ -12,4 +12,9 @@
     </a>
   </div>
 </div>
+
+<div class="index-subjects-container">
+  @include('partials.subjects')
+</div>
+
 @endsection
