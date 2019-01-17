@@ -14,7 +14,7 @@ class CreateSolvedChallenges extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->json('solved_challenges');
+            $table->json('solved_challenges')->nullable();
         });
     }
 
