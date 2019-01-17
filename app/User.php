@@ -37,4 +37,13 @@ class User extends Authenticatable
     protected $casts = [
         'solved_challenges' => 'array',
     ];
+
+    protected function castAttribute($key, $value)
+    {
+        if (is_null($value) && $key === 'solved_challenges') {
+            return [];
+        }
+
+        return parent::castAttribute($key, $value);
+    }
 }
