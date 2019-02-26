@@ -15,15 +15,17 @@
     </template>
 
     <template slot="main-content" slot-scope="{ apiData, activeItem }">
-        <show-challenge
-            v-bind:api-data="apiData"
-            v-bind:active-item="activeItem"
-        ></show-challenge>
-        <solve-challenge-form
-            v-bind:challenge-id="activeItem.id"
-            form-label="{{__('Answer')}}"
-            submit-label="{{__('Submit')}}"
-        ></solve-challenge-form>
+        <div class="col-md-5 offset-md-1">
+            <show-challenge
+                v-bind:api-data="apiData"
+                v-bind:active-item="activeItem"
+            ></show-challenge>
+            <solve-challenge-form
+                v-bind:challenge-id="activeItem.id"
+                form-label="{{__('Answer')}}"
+                submit-label="{{__('Submit')}}"
+            ></solve-challenge-form>
+        </div>
     </template>
 </side-nav>
 @endsection
