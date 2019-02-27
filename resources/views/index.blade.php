@@ -14,15 +14,16 @@
 
   <div class="d-inline-block mx-xs-auto text-center text-md-left col-md-4 offset-md-1 home-panel">
     <div class="home-register">
-      <h2>First time visiting?</h2>
-      <h4>Create an account to save your progress</h4>
-      <input class="w-75" placeholder="Email" type="email" />
-      <input class="w-75" placeholder="Password" type="password" />
-      <a href="{{ route('dashboard') }}">
-        <button class="btn btn-primary">
+      <form method="POST" action="{{ route('register') }}">
+        @csrf
+        <h2>First time visiting?</h2>
+        <h4>Create an account to save your progress</h4>
+        <input class="w-75" name="email" placeholder="Email" type="email" />
+        <input class="w-75" name="password" placeholder="Password" type="password" />
+        <button type="submit" class="btn btn-primary">
           Register
         </button>
-      </a>
+      </form>
     </div>
   </div>
 </div>
