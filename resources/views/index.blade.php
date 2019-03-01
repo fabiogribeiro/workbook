@@ -18,8 +18,8 @@
         @csrf
         <h2>First time visiting?</h2>
         <h4>Create an account to save your progress</h4>
-        <input class="w-75" name="email" placeholder="Email" type="email" />
-        <input class="w-75" name="password" placeholder="Password" type="password" />
+        <input class="w-75 default-input" name="email" placeholder="Email" type="email" />
+        <input class="w-75 default-input" name="password" placeholder="Password" type="password" />
         <button type="submit" class="btn btn-primary">
           Register
         </button>

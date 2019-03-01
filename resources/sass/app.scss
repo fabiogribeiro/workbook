@@ -98,26 +98,26 @@ a {
   button {
     margin-top: 26px;
   }
-
-  input {
-    height: 33px;
-    padding: 6px 12px 8px;
-    margin-bottom: 12px;
-    border-radius: 3px;
-    border: 1px solid #d3d9de;
-    @include placeholder {
-      color: #7d7d7d;
-    }
-    &:focus {
-      @include placeholder {
-        color: #b8b9bb;
-      }
-      border-color: #c9d0d6;
-      outline: 0;
-    }
-  }
 }
 
 nav {
   box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+.default-input {
+  height: 33px;
+  padding: 6px 12px 8px;
+  margin-bottom: 12px;
+  border-radius: 3px;
+  border: 1px solid #d3d9de;
+  @include placeholder {
+    color: #7d7d7d;
+  }
+  &:focus {
+    @include placeholder {
+      color: #b8b9bb;
+    }
+    border-color: #c9d0d6;
+    outline: 0;
+  }
 }
