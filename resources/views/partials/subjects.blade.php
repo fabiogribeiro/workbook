@@ -1,5 +1,5 @@
 <div class="container subjects-container">
-  <h4>Subjects</h4>
+  <h3>Subjects</h3>
   <div class="subjects-panel">
     @foreach ($subjects as $domain => $subjectList)
     <div class="subjects-item">
