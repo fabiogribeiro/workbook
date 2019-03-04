@@ -74,3 +74,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+li {
+  transition: all 0.2s;
+
+  &:hover {
+    padding-left: 8px;
+  }
+}
+</style>
