@@ -19,11 +19,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .fade-enter-active, .fade-leave-active {
   transition: opacity .2s;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+
+div {
+  font-size: 16px;
 }
 </style>
