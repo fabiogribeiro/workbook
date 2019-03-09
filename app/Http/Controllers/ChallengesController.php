@@ -8,6 +8,7 @@ use App\Challenge;
 use App\Subject;
 
 use App\Jobs\GetChallengesBySkill;
+use App\Jobs\CreateChallenge;
 
 
 class ChallengesController extends Controller
@@ -37,19 +38,8 @@ class ChallengesController extends Controller
 
     public function create(Request $request)
     {
-        $challenge = new Challenge;
+        CreateChallenge::dispatch($request->all());
 
-        $subject = Subject::where('slug', $request->subject)->first(); 
-
-        $challenge->title = $request->title;
-        $challenge->body = $request->body;
-        $challenge->answer = $request->answer;
-        $challenge->slug = str_slug($request->title);
-        $challenge->subject_id = $subject->id;
-        $challenge->skill = $request->skill;
-
-        $challenge->save();
-
-        return redirect(route('challenges.index', ['domain' => $subject->domain, 'subject' => $subject->slug]));
+        return back();
     }
 }
