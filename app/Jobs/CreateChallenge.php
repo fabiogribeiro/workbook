@@ -46,7 +46,7 @@ class CreateChallenge implements ShouldQueue
         $challenge->title = $data['title'];
         $challenge->body = $data['body'];
         $challenge->answer = $data['answer'];
-        $challenge->slug = str_slug($data['subject']);
+        $challenge->slug = str_slug($data['title']);
         $challenge->subject_id = $subjectId;
         $challenge->skill = $data['skill'];
 
