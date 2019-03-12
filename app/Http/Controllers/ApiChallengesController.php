@@ -19,7 +19,8 @@ class ApiChallengesController extends Controller
 
     public function show(Challenge $challenge)
     {
-        return $challenge;
+        // Hide unnecessary body data in serialization.
+        return $challenge->makeHidden('body');
     }
 
     public function solve(Request $request)

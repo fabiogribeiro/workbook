@@ -2,7 +2,7 @@
   <transition appear name="fade" mode="out-in">
     <div v-bind:key="apiData.id">
       <h1>{{ apiData.title }}</h1>
-      <div v-html="finalHTML">
+      <div v-html="bodyHTML">
       </div>
     </div>
   </transition>
@@ -12,8 +12,8 @@
 export default {
   props: ['apiData', 'activeItem'],
   computed: {
-    finalHTML: function() {
-      return marked(this.apiData.body)
+    bodyHTML: function() {
+      return this.apiData.body_html
     }
   }
 }
