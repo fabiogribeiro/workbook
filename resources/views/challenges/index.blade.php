@@ -11,7 +11,7 @@
     <p hidden slot="header">{{ title_case(__('domains.' . $activeSubject->domain)) }}</p>
 
     <template slot-scope="{ item }">
-        <subject-item v-bind:item="item"></subject-item>
+        <div class="py-2">@{{ item.title }}</div>
     </template>
 
     <template slot="main-content" slot-scope="{ apiData, activeItem }">
