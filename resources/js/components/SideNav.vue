@@ -79,9 +79,15 @@ export default {
 li {
   transition: all 0.2s;
 
+  div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
   &:hover {
-    padding-left: 8px;
     background-color: #eaecef;
+    padding-left: 8px;
   }
 }
 </style>
