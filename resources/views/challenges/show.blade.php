@@ -11,7 +11,7 @@
     <p hidden slot="header">{{ $challenge->skill }}</p>
 
     <template slot-scope="{ item }">
-        <p>@{{ item.title }}</p>
+        <div class="py-2">@{{ item.title }}</div>
     </template>
 
     <template slot="main-content" slot-scope="{ apiData, activeItem }">

@@ -81,6 +81,7 @@ li {
 
   &:hover {
     padding-left: 8px;
+    background-color: #eaecef;
   }
 }
 </style>
