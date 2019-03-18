@@ -8,7 +8,7 @@
     v-bind:all-items="{{ $otherChallenges }}"
     v-bind:initial-data="{{ $challenge }}" 
 >
-    <p hidden slot="header">{{ $challenge->skill }}</p>
+    <h4 class="side-header" hidden slot="header">{{ $challenge->skill }}</h4>
 
     <template slot-scope="{ item }">
         <div class="py-2">@{{ item.title }}</div>

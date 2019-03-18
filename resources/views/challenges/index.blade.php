@@ -8,7 +8,7 @@
     v-bind:all-items="{{ $subjects }}"
     v-bind:initial-data="{{ json_encode($challengesBySkill) }}"
 >
-    <p hidden slot="header">{{ title_case(__('domains.' . $activeSubject->domain)) }}</p>
+    <h4 class="side-header" hidden slot="header">{{ title_case(__('domains.' . $activeSubject->domain)) }}</h4>
 
     <template slot-scope="{ item }">
         <div class="py-2">@{{ item.title }}</div>
