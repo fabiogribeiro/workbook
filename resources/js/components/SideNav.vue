@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-lg-3 col-md-4 col-sm-12">
         <ul class="list-unstyled">
           <slot name="header">
           </slot>
@@ -79,10 +79,12 @@ export default {
 li {
   transition: all 0.2s;
 
-  div {
+  a {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    padding-left: 10px;
+    display: block;
   }
 
   &:hover {

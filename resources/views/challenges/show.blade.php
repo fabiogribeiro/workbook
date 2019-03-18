@@ -15,7 +15,7 @@
     </template>
 
     <template slot="main-content" slot-scope="{ apiData, activeItem }">
-        <div class="col-md-6 offset-md-1">
+        <div class="col-md-8">
             <show-challenge
                 v-bind:api-data="apiData"
                 v-bind:active-item="activeItem"

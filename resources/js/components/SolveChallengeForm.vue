@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-3 col-md-10 col-lg-7 float-right">
+  <div class="pt-3 col-md-6 float-right">
     <form v-on:submit.prevent="checkAnswer">
       <div class="form-group row">
         <label for="answer" class="col-sm-3 col-form-label">
