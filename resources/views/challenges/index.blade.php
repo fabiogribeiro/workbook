@@ -11,7 +11,7 @@
     <h4 class="side-header" hidden slot="header">{{ title_case(__('domains.' . $activeSubject->domain)) }}</h4>
 
     <template slot-scope="{ item }">
-        <div class="py-2">@{{ item.title }}</div>
+        <div class="py-2 overflow-ellipsis">@{{ item.title }}</div>
     </template>
 
     <template slot="main-content" slot-scope="{ apiData, activeItem }">

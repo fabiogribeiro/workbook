@@ -147,3 +147,9 @@ nav {
   padding-bottom: 8px;
   padding-top: 8px;
 }
+
+.overflow-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

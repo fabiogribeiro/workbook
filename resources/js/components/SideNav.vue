@@ -80,9 +80,6 @@ li {
   transition: all 0.2s;
 
   a {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
     padding-left: 10px;
     display: block;
   }

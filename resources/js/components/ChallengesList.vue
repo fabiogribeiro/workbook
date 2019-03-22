@@ -1,12 +1,15 @@
 <template>
-<div class="col-md-8">
+<div class="col-md-8 col-lg-9">
   <div v-for="(challenges, skill) in apiData" :key="skill" class="card">
     <div class="card-header">
       {{ skill }}
     </div>
     <ul class="list-group list-group-flush">
       <li v-for="challenge in challenges" :key="challenge.id" class="list-group-item">
-        <a v-bind:href="baseUrl + challenge.slug">{{ challenge.title }}</a>
+        <a v-bind:href="baseUrl + challenge.slug">
+          <p class="overflow-ellipsis">{{ challenge.title }}</p>
+          <button class="btn btn-outline-success float-right"> Solve </button>
+        </a>
       </li>
     </ul>
   </div>
@@ -26,7 +29,19 @@ export default {
 
 <style lang="scss" scoped>
 li {
-  font-size: 28px;
+  font-size: 1.5rem;
+
+  p {
+    display: inline-block;
+    margin-bottom: 0;
+    max-width: 70%;
+    vertical-align: top;
+  }
+}
+
+button {
+  display: inline-block;
+  width: 25%;
 }
 
 .card {
