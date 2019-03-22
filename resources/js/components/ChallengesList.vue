@@ -1,9 +1,7 @@
 <template>
 <div class="col-md-8 col-lg-9">
-  <div v-for="(challenges, skill) in apiData" :key="skill" class="card">
-    <div class="card-header">
-      {{ skill }}
-    </div>
+  <div class="default-card" v-for="(challenges, skill) in apiData" :key="skill">
+    <h3>{{ skill }} </h3>
     <ul class="list-group list-group-flush">
       <li v-for="challenge in challenges" :key="challenge.id" class="list-group-item">
         <a v-bind:href="baseUrl + challenge.slug">
@@ -48,7 +46,17 @@ button {
   width: 25%;
 }
 
-.card {
-  margin-bottom: 25px;
+.list-group-item {
+  &:first-child {
+    border-top: 0;
+  }
+}
+
+h3 {
+  margin-top: 0.7rem;
+  margin-left: 1.25rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 2px solid #38c172;
+  display: inline-block;
 }
 </style>
