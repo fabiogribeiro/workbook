@@ -9,7 +9,7 @@
           <input id="answer" class="form-control" name="answer" v-model="userInput" required>
         </div>
       </div>
-      <button type="submit" class="w-100 btn btn-primary">
+      <button type="submit" class="w-100 btn btn-outline-primary">
         {{ submitLabel }}
       </button>
     </form>

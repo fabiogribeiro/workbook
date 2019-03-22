@@ -37,6 +37,10 @@ li {
     max-width: 70%;
     vertical-align: top;
   }
+
+  a {
+    display: block;
+  }
 }
 
 button {
