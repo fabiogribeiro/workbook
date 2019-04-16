@@ -5,9 +5,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import './bootstrap';
+import Vue from 'vue';
+import VueInternationalization from 'vue-i18n';
+import Locale from './vue-i18n-locales.generated';
 
-window.Vue = require('vue');
+window.Vue = Vue;
 
 /**
  * The following block of code may be used to automatically register your
@@ -30,6 +33,15 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const lang = document.documentElement.lang.substr(0, 2); 
+// or however you determine your current app locale
+
+const i18n = new VueInternationalization({
+    locale: lang,
+    messages: Locale
+});
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    i18n
 });
