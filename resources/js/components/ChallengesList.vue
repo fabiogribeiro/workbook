@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-8 col-lg-9">
+<div class="col-md-12 col-lg-9 mx-auto">
   <div class="default-card" v-for="(challenges, skill) in apiData" :key="skill">
     <h3>{{ skill }} </h3>
     <div class="list-group list-group-flush">
