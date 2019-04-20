@@ -3,19 +3,27 @@
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-12">
         <ul class="list-unstyled">
-          <slot name="header">
-          </slot>
-          <li
-            v-for="item in allItems"
-            :key="item.id"
-            v-bind:class="{ active: item.id === activeItem.id }">
-            <a
-              v-bind:href="baseUrl + item.slug"
-              v-on:click.prevent="updateData(item)">
-              <slot v-bind:item="item">
-              </slot>
-            </a>
-          </li>
+          <div
+            v-on:click="toggle"
+            id="side-header-wrapper">
+            <slot name="header">
+            </slot>
+          </div>
+          <div
+            v-if="showList"
+            id="side-list-wrapper">
+            <li
+              v-for="item in allItems"
+              :key="item.id"
+              v-bind:class="{ active: item.id === activeItem.id }">
+              <a
+                v-bind:href="baseUrl + item.slug"
+                v-on:click.prevent="updateData(item)">
+                <slot v-bind:item="item">
+                </slot>
+              </a>
+            </li>
+          </div>
         </ul>
       </div>
       <slot
@@ -33,7 +41,8 @@ export default {
   data: function() {
     return {
       apiData: this.initialData,
-      activeItem: this.activeInit
+      activeItem: this.activeInit,
+      showList: true,
     }
   },
   computed: {
@@ -57,6 +66,9 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+    },
+    toggle: function() {
+      this.showList = !this.showList;
     }
   },
   mounted: function() {
@@ -88,5 +100,9 @@ li {
     background-color: #eaecef;
     padding-left: 8px;
   }
+}
+
+#side-header-wrapper {
+  cursor: pointer;
 }
 </style>
