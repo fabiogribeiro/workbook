@@ -13,14 +13,14 @@
     <form v-on:submit.prevent="checkAnswer">
       <div class="form-group row">
         <label for="answer" class="col-sm-3 col-form-label">
-          {{ formLabel }}
+          {{ $t('Answer') }}
         </label>
         <div class="col-md-9">
           <input id="answer" class="form-control" name="answer" v-model="userInput" required>
         </div>
       </div>
       <button type="submit" class="w-100 btn btn-outline-primary">
-        {{ submitLabel }}
+        {{ $t('Submit') }}
       </button>
     </form>
   </div>
@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  props: ['challengeId', 'formLabel', 'submitLabel'],
+  props: ['challengeId'],
   data: function() {
     return {
       userInput: '',

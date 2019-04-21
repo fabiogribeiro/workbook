@@ -24,8 +24,6 @@
             ></show-challenge>
             <solve-challenge-form
                 v-bind:challenge-id="activeItem.id"
-                form-label="{{__('Answer')}}"
-                submit-label="{{__('Submit')}}"
             ></solve-challenge-form>
         </div>
     </template>
