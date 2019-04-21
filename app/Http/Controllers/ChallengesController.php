@@ -24,11 +24,9 @@ class ChallengesController extends Controller
 
     public function show($domain, Subject $subject, Challenge $challenge)
     {
-        $otherChallenges = Challenge::where('skill', $challenge->skill)
-                            ->get()
-                            ->makeHidden(['body', 'updated_at', 'created_at', 'subject_id', 'skill', 'answer']); // Hide everything not needed
+        $challengesBySkill = GetChallengesBySkill::dispatchNow($subject);                            
 
-        return view('challenges.show', ['subject' => $subject, 'challenge' => $challenge, 'otherChallenges' => $otherChallenges]);
+        return view('challenges.show', compact('challenge', 'subject', 'challengesBySkill'));
     }
 
     public function new()

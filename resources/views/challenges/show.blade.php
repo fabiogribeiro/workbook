@@ -5,10 +5,12 @@
     base-url="/{{ $subject->domain }}/{{ $subject->slug }}/"
     api-url="/api/challenge/"
     v-bind:active-init="{{ $challenge }}"
-    v-bind:all-items="{{ $otherChallenges }}"
+    v-bind:all-items="{{ json_encode($challengesBySkill) }}"
     v-bind:initial-data="{{ $challenge }}" 
 >
-    <h4 class="side-header" hidden slot="header">{{ $challenge->skill }}</h4>
+    <template slot="header" slot-scope="{ title }">
+        <h4 class="side-header">@{{ title }}</h4>
+    </template>
 
     <template slot-scope="{ item }">
         <div class="py-2 overflow-ellipsis">@{{ item.title }}</div>

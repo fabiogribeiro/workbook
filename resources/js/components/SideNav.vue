@@ -2,18 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-12">
-        <ul class="list-unstyled">
+        <ul
+          v-for="(items, title) in allItems"
+          :key="title"
+          class="list-unstyled">
           <div
-            v-on:click="toggle"
-            id="side-header-wrapper">
-            <slot name="header">
+            v-on:click="toggleTitle(title)"
+            class="side-header-wrapper">
+            <slot name="header" v-bind:title="title">
             </slot>
           </div>
           <div
-            v-if="showList"
-            id="side-list-wrapper">
+            v-if="activeTitles.includes(title)"
+            class="side-list-wrapper">
             <li
-              v-for="item in allItems"
+              v-for="item in items"
               :key="item.id"
               v-bind:class="{ active: item.id === activeItem.id }">
               <a
@@ -42,7 +45,7 @@ export default {
     return {
       apiData: this.initialData,
       activeItem: this.activeInit,
-      showList: true,
+      activeTitles: [this.getInitialTitle()],
     }
   },
   computed: {
@@ -67,14 +70,28 @@ export default {
           console.log(error)
         })
     },
-    toggle: function() {
-      this.showList = !this.showList;
-    }
+    toggleTitle: function(title) {
+      if (this.activeTitles.includes(title)) {
+        this.activeTitles = _.filter(this.activeTitles, function(t) {
+          return t != title
+        })
+      }
+      else {
+        this.activeTitles.push(title)
+      }
+    },
+    getInitialTitle: function() {
+      for (var title in this.allItems) {
+        if (this._containsItem(this.allItems[title], this.activeInit))
+          return title
+      }
+    },
+    _containsItem: function(arr, object) {
+      return !!_.find(arr, function(o) { return _.isMatch(o, object) })
+    },
   },
   mounted: function() {
     var vm = this
-
-    vm.$slots.header[0].elm.hidden = false  // Hack to prevent header showing before page load
 
     vm.updateData(this.activeItem, false)
 
@@ -102,7 +119,7 @@ li {
   }
 }
 
-#side-header-wrapper {
+.side-header-wrapper {
   cursor: pointer;
 }
 </style>
