@@ -1,4 +1,4 @@
-<div class="container subjects-container">
+<div class="gray-bg container subjects-container">
   <h4>All subjects</h4>
   <div class="subjects-panel">
     @foreach ($subjects as $domain => $subjectList)
