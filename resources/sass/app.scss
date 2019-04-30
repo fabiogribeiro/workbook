@@ -2,12 +2,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
-@import 'variables';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
 
 @mixin placeholder {
   &::-webkit-input-placeholder {@content}
@@ -51,14 +45,6 @@
   li {
     width: 45%;
     vertical-align: text-top;
-  }
-
-  @include media-breakpoint-up(md) {
-    li {
-      width: 20%;
-      margin-bottom: 18px;
-      font-size: 20px;
-    }
   }
 }
 
