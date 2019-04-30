@@ -1,5 +1,8 @@
 <div class="gray-bg container subjects-container">
-  <h4>All subjects</h4>
+  @component('components.wideheader')
+    ALL DOMAINS
+  @endcomponent
+
   <div class="subjects-panel">
     @foreach ($subjects as $domain => $subjectList)
     <div class="subjects-item">

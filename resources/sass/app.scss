@@ -10,18 +10,29 @@
   &:-ms-input-placeholder      {@content}
 }
 
+.wide-header {
+  span {
+    color: #46535e;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: relative;
+    height: 5px;
+    width: calc(100% - 130px);
+    top: 12px;
+    left: 130px;
+    background-color: #e5e7e8
+  }
+}
+
 .gray-bg {
   background-color: #f3f3f3;
 }
 
 .subjects-container {
   padding-top: 50px;
-
-  h4 {
-    color: #777;
-    margin-bottom: 33px;
-    padding-bottom: 5px;
-  }
 
   h1 {
     border-bottom: 2px solid #38c172;
