@@ -1,4 +1,8 @@
 <div class="gray-bg container subjects-container">
+  <div class="page-description-header">
+    <h1>Learn, practice or solve challenges</h1>
+  </div>
+
   @component('components.wideheader')
     ALL DOMAINS
   @endcomponent

@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,400');
 
 
 @mixin placeholder {
@@ -35,13 +35,13 @@
   background-color: #f3f3f3;
 }
 
-.subjects-container {
-  padding-top: 50px;
+.page-description-header {
+  padding-top: 12px;
+  margin-bottom: 20px;
 
   h1 {
-    border-bottom: 2px solid #38c172;
-    display: inline-block;
-    margin-bottom: 20px;
+    font-weight: 200;
+    font-size: 25px;
   }
 }
 
