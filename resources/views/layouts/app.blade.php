@@ -31,7 +31,7 @@
 </head>
 <body>
   <div id="app">
-    <nav class="py-3 navbar navbar-expand-md navbar-light">
+    <nav class="py-2 navbar navbar-expand-md navbar-dark dark-bg">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
           {{ config('app.name', 'Laravel') }}
