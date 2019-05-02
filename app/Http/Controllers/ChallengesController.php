@@ -15,11 +15,11 @@ class ChallengesController extends Controller
 {
     public function index($domain, Subject $subject)
     {
-        $subjects = Subject::where('domain', $subject->domain)->get();
+        $challenge = $subject->challenges->first;
+        $params = ['domain' => $domain, 'subject' => $subject->slug, 'challenge' => $challenge->slug];
 
-        $challengesBySkill = GetChallengesBySkill::dispatchNow($subject);
-
-        return view('challenges.index', ['activeSubject' => $subject, 'subjects' => $subjects, 'challengesBySkill' => $challengesBySkill]);
+        // Redirect permanently to first challenge in this subject.
+        return redirect(route('challenges.show', $params), 301);
     }
 
     public function show($domain, Subject $subject, Challenge $challenge)
