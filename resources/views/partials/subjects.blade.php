@@ -4,7 +4,7 @@
   </div>
 
   @foreach ($subjects as $domain => $subjectList)
-    @component('components.wideheader')
+    @component('partials.wideheader')
       {{ strtoupper($domain) }}
     @endcomponent
 
