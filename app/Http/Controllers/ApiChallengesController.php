@@ -12,17 +12,13 @@ use App\Jobs\SolveChallenge;
 
 class ApiChallengesController extends Controller
 {
-    public function index(Subject $subject)
-    {
-        return GetChallengesBySkill::dispatchNow($subject);
-    }
-
-    public function show(Challenge $challenge)
-    {
-        // Hide unnecessary body data in serialization.
-        return $challenge->makeHidden('body');
-    }
-
+    /**
+     * Notify that a challenge has been solved.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return array
+     */
     public function solve(Request $request)
     {
         SolveChallenge::dispatch($request->challengeId, $request->user());
