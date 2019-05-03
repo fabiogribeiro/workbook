@@ -51,6 +51,7 @@
   vertical-align: text-top;
 
   p {
+    font-weight: 300;
     font-size: 1.5rem;
     margin-top: 25px;
     margin-bottom: 40px;
@@ -61,6 +62,10 @@
     font-size: 4rem;
   }
 
+  h1, h2 {
+    color: #46535e;
+  }
+
   button {
     min-width: 200px;
     color: white;
@@ -69,6 +74,7 @@
 
 .home-register {
   h4 {
+    font-weight: 300;
     color: #777;
     margin-bottom: 50px;
   }
