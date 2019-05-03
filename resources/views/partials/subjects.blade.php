@@ -8,13 +8,25 @@
       {{ strtoupper($domain) }}
     @endcomponent
 
-    @foreach ($subjectList as $subject)
-      <a
-        href="{{ route('challenges.index', ['domain' => $domain,
-                                            'subject' => $subject->slug]) }}"
-      >
-        {{ $subject->title }}
-      </a>
-    @endforeach
+    <div class="my-3 d-flex flex-wrap align-content-start">
+      @foreach ($subjectList as $subject)
+      <div class="subject-card-wrapper">
+        <a
+          href="{{ route('challenges.index', ['domain' => $domain,
+                                              'subject' => $subject->slug]) }}"
+        >
+          <div class="subject-card">
+            <div class="subject-card-left float-left"></div>
+            <div class="subject-card-right float-left">
+              <div class="my-4 mx-3">
+                <h3> {{ $subject->title }}</h3>
+                <p> Lorem ipsum </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      @endforeach
+    </div>
   @endforeach
 </div>

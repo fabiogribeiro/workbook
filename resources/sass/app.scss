@@ -2,6 +2,7 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,400');
 
+@import 'variables';
 
 @mixin placeholder {
   &::-webkit-input-placeholder {@content}
@@ -145,6 +146,36 @@ nav {
   button {
     margin-top: 26px;
   }
+}
+
+.subject-card-wrapper {
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.subject-card {
+  background-color: #fff;
+  height: 144px;
+  width: 264px;
+  color: #46535e;
+
+  p {
+    color:#9ca3a8;
+  }
+}
+
+.subject-card-left {
+  height: 100%;
+  width: 70px;
+}
+
+.subject-card-right {
+  height: 100%;
+  width: calc(100% - 70px);
 }
 
 .side-header {
