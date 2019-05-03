@@ -31,7 +31,8 @@
 </head>
 <body>
   <div id="app">
-    <nav class="py-2 navbar navbar-expand-md navbar-dark dark-bg">
+    <nav class="py-2 navbar navbar-expand-md
+      {{ Request::is('/') ? 'navbar-light' : 'navbar-dark dark-bg' }}">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
           {{ config('app.name', 'Laravel') }}
@@ -113,7 +114,7 @@
       </div>
     </nav>
 
-    <main class="gray-bg py-4">
+    <main class="py-4 {{ Request::is('/') ? '' : 'gray-bg' }}">
       @yield('content')
     </main>
   </div>
