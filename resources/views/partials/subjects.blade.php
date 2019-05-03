@@ -16,7 +16,9 @@
                                               'subject' => $subject->slug]) }}"
         >
           <div class="subject-card">
-            <div class="subject-card-left float-left"></div>
+            <div class="subject-card-left text-center float-left">
+              <p>0/10</p>
+            </div>
             <div class="subject-card-right float-left">
               <div class="my-4 mx-3">
                 <h3> {{ $subject->title }}</h3>

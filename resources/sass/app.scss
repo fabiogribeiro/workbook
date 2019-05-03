@@ -178,6 +178,12 @@ nav {
 .subject-card-left {
   height: 100%;
   width: 70px;
+
+  p {
+    display:inline-block;
+    margin-top: 56px;
+    border-bottom: 1px solid $teal;
+  }
 }
 
 .subject-card-right {
