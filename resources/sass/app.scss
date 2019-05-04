@@ -172,3 +172,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.collapsing {
+  transition: height 0.5s ease;
+}
