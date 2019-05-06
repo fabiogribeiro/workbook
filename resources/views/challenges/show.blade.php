@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-md-2 offset-md-1">
-    <ul class="list-unstyled">
+    <ul class="list-unstyled side-skill-list">
     @foreach ($challengesBySkill as $skill => $challenges)
       <li>
         @php

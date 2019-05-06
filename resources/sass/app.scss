@@ -193,3 +193,10 @@
     text-decoration: none;
   }
 }
+
+.side-skill-list {
+  & > li {
+    border-bottom: 1px solid #e5e7e8;
+    padding: 10px 0;
+  }
+}
