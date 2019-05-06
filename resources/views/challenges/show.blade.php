@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-md-2 offset-md-1">
-    <ul class="">
+    <ul class="list-unstyled">
     @foreach ($challengesBySkill as $skill => $challenges)
       <li>
         @php
@@ -43,8 +43,10 @@
     </ul>
   </div>
 
-  <div class="col-md-9">
+  <div class="col-md-8 challenge-wrapper">
     <h1>{{ $challenge->title }}</h1>
+
+    {!! $challenge->body_html !!}
   </div>
 
 </div>
