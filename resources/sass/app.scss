@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,400');
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,400,600');
 
 @import 'variables';
 
@@ -179,4 +179,17 @@
 
 .challenge-wrapper {
   background-color: #fff;
+}
+
+.side-skill-header {
+  $header-color: #252c33;
+
+  color: $header-color;
+  font-size: 16px;
+  font-weight: 600;
+
+  &:hover {
+    color: $header-color;
+    text-decoration: none;
+  }
 }

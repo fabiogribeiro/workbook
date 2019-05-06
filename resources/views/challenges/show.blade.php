@@ -17,6 +17,7 @@
           role="button"
           aria-expanded="{{ $expanded ? 'true' : 'false' }}"
           aria-controls="{{ $toggleID }}"
+          class="side-skill-header"
         >
           {{ $skill }}
         </a>
