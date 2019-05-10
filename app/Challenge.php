@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Challenge extends Model
 {
+    protected $casts = ['questions' => 'object'];
+
     /**
     * Get the route key for the model.
     *
