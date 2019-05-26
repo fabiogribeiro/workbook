@@ -1,16 +1,9 @@
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,400,700');
-
 @mixin placeholder {
   &::-webkit-input-placeholder {@content}
   &:-moz-placeholder           {@content}
   &::-moz-placeholder          {@content}
   &:-ms-input-placeholder      {@content}
-}
-
-.dark-bg {
-  background-color: #414260 !important;
 }
 
 .wide-header {
