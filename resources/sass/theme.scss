@@ -93,78 +93,10 @@
   }
 }
 
-.default-card {
-  padding: 20px 20px 20px 20px;
-  box-shadow: 0px 6px 10px 0px rgba(115,143,147,.3);
-}
-
-.auth-card {
-  h2 {
-    margin-bottom: 50px;
-    text-align: center;
-  }
-
-  button {
-    margin-top: 26px;
-  }
-}
-
-.subject-card-wrapper {
-  background-color: #fff;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #e5e7e8;
-
-  @media (max-width: 767.98px) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.subject-card {
-  height: 144px;
-  width: 264px;
-  color: #46535e;
-
-  p {
-    color:#9ca3a8;
-  }
-
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 1px 1px 0 rgba(159,167,194,0.8);
-  }
-}
-
-.subject-card-left {
-  height: 100%;
-  width: 70px;
-
-  p {
-    display:inline-block;
-    margin-top: 56px;
-  }
-}
-
-.subject-card-right {
-  height: 100%;
-  width: calc(100% - 70px);
-}
-
 .side-header {
   padding-left: 10px;
   padding-bottom: 8px;
   padding-top: 8px;
-}
-
-.overflow-ellipsis {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.collapsing {
-  transition: height 0.5s ease;
 }
 
 .challenge-wrapper {
