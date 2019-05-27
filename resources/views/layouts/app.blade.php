@@ -73,16 +73,30 @@
         </div>
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
-            <li>
-              <a href="{{ route('login') }}">
-                {{ __('Login') }}
-              </a>
-            </li>
-            <li>
-              <a href="{{ route('register') }}">
-                {{ __('auth.register') }}
-              </a>
-            </li>
+            @guest
+              <li>
+                <a href="{{ route('login') }}">
+                  {{ __('Login') }}
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('register') }}">
+                  {{ __('auth.register') }}
+                </a>
+              </li>
+            @else
+              <li>
+                <a href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                </a>
+              </li>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+            @endguest
           </ul>
         </div>
       </nav>
