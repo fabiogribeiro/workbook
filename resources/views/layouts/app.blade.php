@@ -10,7 +10,7 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Scripts -->
-  <script src="{{ mix('js/app.js') }}" defer></script>
+  <script src="{{ mix('js/app.js') }}"></script>
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -31,7 +31,7 @@
 <body>
   <div id="app">
     <div class="uk-container">
-      <nav class="uk-navbar" uk-navbar="delay-hide: 200">
+      <nav uk-navbar="delay-hide: 200">
         <div class="uk-navbar-left">
           <a class="uk-navbar-item uk-logo" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -89,7 +89,9 @@
     </div>
 
     <main class="{{ Request::is('/') ? '' : 'gray-bg' }}">
-      @yield('content')
+      <div class="uk-container">
+        @yield('content')
+      </div>
     </main>
   </div>
 </body>
