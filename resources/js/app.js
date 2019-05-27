@@ -34,14 +34,15 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  */
 
 const lang = document.documentElement.lang.substr(0, 2); 
-// or however you determine your current app locale
 
 const i18n = new VueInternationalization({
     locale: lang,
     messages: Locale
 });
 
-const app = new Vue({
-    el: '#app',
-    i18n
-});
+window.addEventListener('load', function() {
+    const app = new Vue({
+        el: '#app',
+        i18n
+    });
+})
