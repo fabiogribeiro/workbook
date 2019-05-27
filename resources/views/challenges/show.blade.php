@@ -2,53 +2,35 @@
 
 @section('content')
 
-<div class="row">
-  <div class="col-md-2 offset-md-1">
-    <ul class="list-unstyled side-skill-list">
-    @foreach ($challengesBySkill as $skill => $challenges)
-      <li>
-        @php
-          $toggleID = str_slug($skill);
-          $expanded = $skill === $challenge->skill;
-        @endphp
-        <a
-          data-toggle="collapse"
-          href="#{{ $toggleID }}"
-          role="button"
-          aria-expanded="{{ $expanded ? 'true' : 'false' }}"
-          aria-controls="{{ $toggleID }}"
-          class="side-skill-header"
-        >
-          {{ $skill }}
-        </a>
-        <div
-          class="collapse {{ $expanded ? 'show' : '' }}"
-          id="{{ $toggleID }}"
-        >
-          <ul>
-            @foreach ($challenges as $currentChallenge)
-              <li>
-                <a
-                  href="{{ route('challenges.show', ['domain' => $subject->domain,
-                                                    'subject' => $subject->slug,
-                                                    'challenge' => $currentChallenge->slug]) }}"
-                >
-                  {{ $currentChallenge->title }}
-                </a>
-              </li>
-            @endforeach
-          </ul>
-        </div>
-      </li>
-    @endforeach
+<div uk-grid>
+  <div class="uk-width-1-4">
+    <ul class="uk-list-divider uk-list-large" uk-accordion="multiple: true">
+      @foreach ($challengesBySkill as $skill => $challenges)
+        <li class="{{ $challenge->skill === $skill ? 'uk-open' : '' }}">
+          <a class="uk-accordion-title" href="#">
+            {{ $skill }}
+          </a>
+          <div class="uk-accordion-content">
+            <ul class="uk-list uk-list-bullet uk-link-reset">
+              @foreach ($challenges as $currentChallenge)
+                <li>
+                  <a href="{{ route('challenges.show', ['domain' => $subject->domain,
+                                                        'subject' => $subject->slug,
+                                                        'challenge' => $currentChallenge->slug]) }}">
+                    {{ $currentChallenge->title }}
+                  </a>
+                </li>
+              @endforeach
+            </ul>
+          </div>
+        </li>
+      @endforeach
     </ul>
   </div>
-
-  <div class="col-md-8 challenge-wrapper">
-    <h1>{{ $challenge->title }}</h1>
-
-    {!! $challenge->body_html !!}
+  <div class="uk-background-default uk-width-3-4">
+    <h2>{{ $challenge->title }}</h2>
+    <p>{!! $challenge->body_html !!}</p>
   </div>
-
 </div>
+
 @endsection
