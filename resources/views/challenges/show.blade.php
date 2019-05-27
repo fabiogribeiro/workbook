@@ -4,25 +4,23 @@
 
 <div uk-grid>
   <div class="uk-width-1-4">
-    <ul class="uk-list-divider uk-list-large" uk-accordion="multiple: true">
+    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
       @foreach ($challengesBySkill as $skill => $challenges)
-        <li class="{{ $challenge->skill === $skill ? 'uk-open' : '' }}">
-          <a class="uk-accordion-title" href="#">
+        <li class="uk-parent {{ $skill === $challenge->skill ? 'uk-open uk-active' : '' }}">
+          <a href="#">
             {{ $skill }}
           </a>
-          <div class="uk-accordion-content">
-            <ul class="uk-list uk-list-bullet uk-link-reset">
-              @foreach ($challenges as $currentChallenge)
-                <li>
-                  <a href="{{ route('challenges.show', ['domain' => $subject->domain,
-                                                        'subject' => $subject->slug,
-                                                        'challenge' => $currentChallenge->slug]) }}">
-                    {{ $currentChallenge->title }}
-                  </a>
-                </li>
-              @endforeach
-            </ul>
-          </div>
+          <ul class="uk-nav-sub uk-list uk-list-bullet">
+            @foreach ($challenges as $currentChallenge)
+              <li class="{{ $challenge->id === $currentChallenge->id ? 'uk-active' : '' }}">
+                <a href="{{ route('challenges.show', ['domain' => $subject->domain,
+                                                      'subject' => $subject->slug,
+                                                      'challenge' => $currentChallenge->slug]) }}">
+                  {{ $currentChallenge->title }}
+                </a>
+              </li>
+            @endforeach
+          </ul>
         </li>
       @endforeach
     </ul>
