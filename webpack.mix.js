@@ -15,7 +15,6 @@ const mix = require('laravel-mix');
  * Compile js/css assets to public
  */
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/bootstrap.scss', 'public/css')
     .sass('resources/sass/app.scss', 'public/css');
 
 /**
