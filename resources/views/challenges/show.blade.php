@@ -4,6 +4,10 @@
 
 <div uk-grid>
   <div class="uk-width-1-4">
+    <div class="uk-card uk-card-default uk-card-body uk-margin-medium-bottom">
+      <h3 class="uk-card-title">{{ $subject->title }}</h3>
+      <p>Lorem ipsum</p>
+    </div>
     <ul class="uk-nav-default uk-nav-parent-icon uk-list-divider" uk-nav="multiple: true; duration: 300">
       @foreach ($challengesBySkill as $skill => $challenges)
         <li class="uk-parent {{ $skill === $challenge->skill ? 'uk-open uk-active' : '' }}">
