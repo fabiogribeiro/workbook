@@ -4,7 +4,7 @@
 
 <div uk-grid>
   <div class="uk-width-1-4">
-    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
+    <ul class="uk-nav-default uk-nav-parent-icon uk-list-divider" uk-nav="multiple: true; duration: 300">
       @foreach ($challengesBySkill as $skill => $challenges)
         <li class="uk-parent {{ $skill === $challenge->skill ? 'uk-open uk-active' : '' }}">
           <a href="#">
