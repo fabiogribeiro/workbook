@@ -20,6 +20,7 @@ class MoveQuestionsToTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->unsignedInteger('challenge_id');
             $table->foreign('challenge_id')->references('id')->on('challenges');
             $table->string('title');
             $table->jsonb('question_data')->default('[]');
