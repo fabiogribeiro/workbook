@@ -19,10 +19,18 @@ class Challenge extends Model
     }
 
     /**
-     * Get the subject for this challenge
+     * Get the subject of this challenge
      */
     public function subject()
     {
         return $this->belongsTo('App\Subject');
+    }
+
+    /**
+     * Get the questions that belong to this challenge
+     */
+    public function questions()
+    {
+        return $this->hasMany('App\Question');
     }
 }
