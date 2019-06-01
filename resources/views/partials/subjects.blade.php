@@ -1,6 +1,6 @@
 <div class="uk-container">
   <div class="page-description-header">
-    <h1>Learn, practice or solve challenges</h1>
+    <h3>Learn, practice or solve challenges</h3>
   </div>
 
   @foreach ($subjects as $domain => $subjectList)
