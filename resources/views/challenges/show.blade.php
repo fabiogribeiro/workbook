@@ -32,6 +32,41 @@
   <div class="uk-background-default uk-width-3-4">
     <h2>{{ $challenge->title }}</h2>
     <p>{!! $challenge->body_html !!}</p>
+
+    <div class="uk-margin-large-top">
+      <ul class="uk-tab" uk-tab>
+        <li class="uk-active">
+          <a href="#">Questions</a>
+        </li>
+        <li class="uk-disabled">
+          <a href="#">Discussion</a>
+        </li>
+      </ul>
+      <div>
+        <ul class="uk-list uk-list-large uk-list-divider">
+          @foreach ($challenge->questions as $question)
+            <li>
+              <p>{{ $question->title }}</p>
+              <form>
+                @if (isset($question->question_data['choices']))
+                  <div class="uk-form-controls">
+                    @foreach ($question->question_data['choices'] as $choice)
+                      <label><input class="uk-radio" type="radio" name="#">
+                        {{ $choice }}
+                      </label><br>
+                    @endforeach
+                  </div>
+                @else
+                  <input class="uk-input uk-form-width-medium" type="text" placeholder="Answer">
+                  <button class="uk-button uk-button-primary">Submit</button>
+                @endif
+              </form>
+            </li>
+          @endforeach
+        </ul>
+      </div>
+     </div>
+    </div>
   </div>
 </div>
 
