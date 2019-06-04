@@ -48,14 +48,17 @@
             @foreach ($challenge->questions as $question)
               <li>
                 <p>{{ $question->title }}</p>
-                <form>
+                <form method="POST" action="/api/questions/answer">
+                  @csrf
+
                   @if (isset($question->question_data['choices']))
                     <div class="uk-form-controls">
-                      @foreach ($question->question_data['choices'] as $choice)
-                        <label><input class="uk-radio" type="radio" name="#">
+                      @foreach ($question->question_data['choices'] as $i => $choice)
+                        <label><input class="uk-radio" type="radio" name="choice" value="{{ chr($i + 65) }}" required>
                           {{ $choice }}
                         </label><br>
                       @endforeach
+                      <button class="uk-button uk-button-primary uk-margin-small">Submit</button>
                     </div>
                   @else
                     <input class="uk-input uk-form-width-medium" type="text" placeholder="Answer">
