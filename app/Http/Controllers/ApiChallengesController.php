@@ -14,5 +14,6 @@ class ApiChallengesController extends Controller
 {
   public function answerQuestion(Request $request)
   {
+    return ['result' => true];
   }
 }
