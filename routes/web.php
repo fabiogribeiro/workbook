@@ -42,3 +42,10 @@ Route::get('/profile', 'ProfileController@show')->name('profile');
 Route::get('/dashboard', 'SubjectsController@index')->name('dashboard');
 Route::get('/{domain}/{subject}', 'ChallengesController@index')->name('challenges.index');
 Route::get('/{domain}/{subject}/{challenge}', 'ChallengesController@show')->name('challenges.show');
+
+/**
+ * Client side consumed APIs use sessions and go on this section.
+ */
+Route::prefix('api')->group(function () {
+    Route::post('questions/answer', 'ApiChallengesController@answerQuestion');
+});
