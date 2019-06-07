@@ -36,6 +36,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'solved_challenges' => 'array',
+        'solved_questions' => 'array'
     ];
 
     protected function castAttribute($key, $value)
