@@ -5,7 +5,7 @@
   <form v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
     <div
         v-if="isMultipleChoice"
-        class="uk-form-controls"
+        class="uk-form-controls uk-height-small"
     >
       <div
           v-for="(choice, index) in question.question_data.choices"
@@ -21,7 +21,8 @@
           {{ choice }}
         </label><br>
       </div>
-      <button class="uk-button uk-button-primary uk-margin-small">Submit</button>
+      <button v-if="!isUpdating" key="default" class="uk-button uk-button-primary uk-margin-small-top">Submit</button>
+      <div v-else uk-spinner key="updating" class="uk-margin-medium-left uk-margin-small-top"></div>
     </div>
     <div v-else>
       <input
@@ -30,7 +31,8 @@
         v-model="answer"
         placeholder="Answer"
         required>
-      <button class="uk-button uk-button-primary">Submit</button>
+      <button v-if="!isUpdating" key="default" class="uk-button uk-button-primary">Submit</button>
+      <div v-else uk-spinner key="updating" class="uk-margin-medium-left"></div>
     </div>
   </form>
 </div>
@@ -42,6 +44,7 @@ export default {
     return {
       action: '/api/questions/answer',
       answer: '',
+      isUpdating: false,
     }
   },
   props: ['question'],
@@ -53,12 +56,15 @@ export default {
   methods: {
     checkAnswer: function() {
       var vm = this
+      vm.isUpdating = true
 
       axios.post(this.action, {
         id: vm.question.id,
         answer: vm.answer
       }).then(function (response) {
-        console.log(response);
+        setTimeout(function() {
+          vm.isUpdating = false
+        }, 500)
       }).catch(function (error) {
         console.log(error);
       })
