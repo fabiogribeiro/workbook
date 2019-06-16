@@ -1,0 +1,12 @@
+/**
+* Make icon point up and down.
+*/
+@mixin hook-nav-misc() {
+  .uk-nav-parent-icon > .uk-parent > a::after {
+    transform: rotate(-90deg);
+  }
+
+  .uk-nav-parent-icon > .uk-parent.uk-open > a::after {
+    transform: scaleY(-1);
+  }
+}
