@@ -26,3 +26,47 @@
 .gray-bg {
   background-color: #f3f3f3;
 }
+
+.challenge-list-bullet {
+  $cover-color: #f3f3f3;
+  $bullet-color: #999;
+
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 1px;
+    height: 21px;
+    background-color: $cover-color;
+  }
+
+  & > li {
+    margin-top: 0 !important;
+    padding-top: 10px;
+    border-left: 1px solid $bullet-color;
+
+    &::before {
+      $length: 11px;
+
+      background-image: none;
+      background-color: $bullet-color;
+      width: $length;
+      height: $length;
+      border-radius: 50%;
+      transform: translate(-6px, 16px);
+    }
+
+    &:last-child::after {
+      content: '';
+      position: absolute;
+      top: 27px;
+      left: -1px;
+      width: 1px;
+      height: 20px;
+      background-color: $cover-color;
+    }
+  }
+}
