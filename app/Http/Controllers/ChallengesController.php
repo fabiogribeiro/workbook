@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Challenge;
 use App\Subject;
@@ -24,9 +25,11 @@ class ChallengesController extends Controller
 
     public function show($domain, Subject $subject, Challenge $challenge)
     {
-        $challengesBySkill = GetChallengesBySkill::dispatchNow($subject);                            
+        $challengesBySkill = GetChallengesBySkill::dispatchNow($subject);
 
-        return view('challenges.show', compact('challenge', 'subject', 'challengesBySkill'));
+        $solvedChallenges = Auth::check() ? Auth::user()->solved_challenges : [];
+
+        return view('challenges.show', compact('challenge', 'subject', 'challengesBySkill', 'solvedChallenges'));
     }
 
     public function new()
