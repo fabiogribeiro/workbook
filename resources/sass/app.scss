@@ -26,6 +26,17 @@
 .gray-bg {
   background-color: #f3f3f3;
 }
+.uk-grid > a.uk-button-text:before {
+  left: 16px;
+  transform: translateY(1px);
+  border-bottom: 1px solid #39f;
+}
+
+.uk-card-default.uk-card-hover {
+  &:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+}
 
 .challenge-list-bullet {
   $cover-color: #f3f3f3;
