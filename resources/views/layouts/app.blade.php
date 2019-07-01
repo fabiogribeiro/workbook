@@ -31,76 +31,78 @@
 </head>
 <body>
   <div id="app">
-    <div class="uk-container">
-      <nav uk-navbar="delay-hide: 200">
-        <div class="uk-navbar-left">
-          <a class="uk-navbar-item uk-logo" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
-          </a>
+    <div class="uk-background-primary">
+      <div class="uk-container">
+        <nav uk-navbar="delay-hide: 200" class="uk-light">
+          <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" href="{{ url('/') }}">
+              {{ config('app.name', 'Laravel') }}
+            </a>
 
-          <ul class="uk-navbar-nav">
-            <li>
-              <a href="#">
-                {{ app()->getLocale() }}
-              </a>
-              <div class="uk-navbar-dropdown">
-                <ul class="uk-nav uk-navbar-dropdown-nav">
-                  <li>
-                    <a href="#"
-                      onclick="event.preventDefault();
-                      document.getElementById('lang-input').value = 'en';
-                      document.getElementById('lang-form').submit();">
-                      English
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      onclick="event.preventDefault();
-                      document.getElementById('lang-input').value = 'pt';
-                      document.getElementById('lang-form').submit();">
-                      Português
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <form id="lang-form" action="{{ route('lang') }}" method="POST" style="display: none;">
-                @method('PUT')
-                @csrf
+            <ul class="uk-navbar-nav">
+              <li>
+                <a href="#">
+                  {{ app()->getLocale() }}
+                </a>
+                <div class="uk-navbar-dropdown">
+                  <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li>
+                      <a href="#"
+                        onclick="event.preventDefault();
+                        document.getElementById('lang-input').value = 'en';
+                        document.getElementById('lang-form').submit();">
+                        English
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#"
+                        onclick="event.preventDefault();
+                        document.getElementById('lang-input').value = 'pt';
+                        document.getElementById('lang-form').submit();">
+                        Português
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <form id="lang-form" action="{{ route('lang') }}" method="POST" style="display: none;">
+                  @method('PUT')
+                  @csrf
 
-                <input id="lang-input" type="text" name="lang">
-              </form>
-            </li>
-          </ul>
-        </div>
-        <div class="uk-navbar-right">
-          <ul class="uk-navbar-nav">
-            @guest
-              <li>
-                <a href="{{ route('login') }}">
-                  {{ __('Login') }}
-                </a>
+                  <input id="lang-input" type="text" name="lang">
+                </form>
               </li>
-              <li>
-                <a href="{{ route('register') }}">
-                  {{ __('auth.register') }}
-                </a>
-              </li>
-            @else
-              <li>
-                <a href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
-                </a>
-              </li>
+            </ul>
+          </div>
+          <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+              @guest
+                <li>
+                  <a href="{{ route('login') }}">
+                    {{ __('Login') }}
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ route('register') }}">
+                    {{ __('auth.register') }}
+                  </a>
+                </li>
+              @else
+                <li>
+                  <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                  </a>
+                </li>
 
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-            @endguest
-          </ul>
-        </div>
-      </nav>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              @endguest
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
 
     <main class="{{ Request::is('/') ? '' : 'gray-bg' }}">
