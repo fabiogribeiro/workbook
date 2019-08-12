@@ -6,26 +6,9 @@
   &:-ms-input-placeholder      {@content}
 }
 
-.wide-header {
-  span {
-    color: #46535e;
-  }
-
-  &::before {
-    content: '';
-    display: block;
-    position: relative;
-    height: 5px;
-    width: calc(100% - 130px);
-    top: 12px;
-    left: 130px;
-    background-color: #e5e7e8;
-  }
-}
-
 .gray-bg {
   background-color: #f3f3f3;
-}
+
 .uk-grid > a.uk-button-text:before {
   left: 16px;
   transform: translateY(1px);

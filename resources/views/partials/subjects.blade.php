@@ -4,9 +4,9 @@
   </div>
 
   @foreach ($subjects as $domain => $subjectList)
-    @component('partials.wideheader')
-      {{ strtoupper($domain) }}
-    @endcomponent
+    <h5 class="uk-heading-line">
+      <span>{{ strtoupper($domain) }}</span>
+    </h5>
 
 
   <div class="uk-margin-small">
