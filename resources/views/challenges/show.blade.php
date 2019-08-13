@@ -17,7 +17,7 @@
           <ul class="uk-nav-sub uk-list uk-list-bullet challenge-list-bullet">
             @foreach ($challenges as $currentChallenge)
               <li class="{{ ($challenge->id === $currentChallenge->id ? 'uk-active' : '')
-                          . (in_array($currentChallenge->id, $solvedChallenges) ? ' solved' : '') }}">
+                          . ($currentChallenge->solved ? ' solved' : '') }}">
                 <a class="uk-text-truncate" href="{{ route('challenges.show', ['domain' => $subject->domain,
                                                       'subject' => $subject->slug,
                                                       'challenge' => $currentChallenge->slug]) }}">

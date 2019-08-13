@@ -27,9 +27,7 @@ class ChallengesController extends Controller
     {
         $challengesBySkill = GetChallengesBySkill::dispatchNow($subject);
 
-        $solvedChallenges = Auth::check() ? Auth::user()->solved_challenges : [];
-
-        return view('challenges.show', compact('challenge', 'subject', 'challengesBySkill', 'solvedChallenges'));
+        return view('challenges.show', compact('challenge', 'subject', 'challengesBySkill'));
     }
 
     public function new()

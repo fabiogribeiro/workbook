@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Challenge extends Model
@@ -32,5 +33,17 @@ class Challenge extends Model
     public function questions()
     {
         return $this->hasMany('App\Question');
+    }
+
+    /**
+     * Get a boolean that's true when this challenge is solved.
+     *
+     * @return bool
+     */
+    public function getSolvedAttribute()
+    {
+        $solvedChallenges = Auth::check() ? Auth::user()->solved_challenges : [];
+
+        return in_array($this->id, $solvedChallenges);
     }
 }
