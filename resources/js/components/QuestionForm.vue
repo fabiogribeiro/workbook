@@ -2,7 +2,7 @@
 <div>
   <p>{{ question.title }}</p>
 
-  <form v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
+  <form v-if="!isSolved" v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
     <div
         v-if="isMultipleChoice"
         class="uk-form-controls uk-height-small"
@@ -35,6 +35,11 @@
       <div v-else uk-spinner key="updating" class="uk-margin-medium-left"></div>
     </div>
   </form>
+
+  <div v-else>
+    <span uk-icon="icon: check"></span>
+    Question solved
+  </div>
 </div>
 </template>
 
@@ -45,6 +50,7 @@ export default {
       action: '/api/questions/answer',
       answer: '',
       isUpdating: false,
+      isSolved: this.question.solved
     }
   },
   props: ['question'],
@@ -63,6 +69,7 @@ export default {
         answer: vm.answer
       }).then(function (response) {
         setTimeout(function() {
+          vm.isSolved = true
           vm.isUpdating = false
         }, 500)
       }).catch(function (error) {
@@ -72,3 +79,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+span.uk-icon {
+  color: green;
+}
+
+</style>
