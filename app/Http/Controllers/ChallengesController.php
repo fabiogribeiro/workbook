@@ -32,7 +32,7 @@ class ChallengesController extends Controller
 
     public function new()
     {
-        return view('challenges.new');
+        return view('internal.newchallenge');
     }
 
     public function create(Request $request)

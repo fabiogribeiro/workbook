@@ -34,7 +34,7 @@ Route::prefix('internal')->middleware('can:access-internal')->group(function() {
     Route::post('/challenges/create', 'ChallengesController@create')->name('challenges.create');
 
     Route::get('/passportclients', function() {
-        return view('clientmanager');
+        return view('internal.clientmanager');
     });
 });
 

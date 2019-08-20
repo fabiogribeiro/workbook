@@ -24,7 +24,7 @@ class SubjectsController extends Controller
     }
     public function new()
     {
-        return view('subjects.new');
+        return view('internal.newsubject');
     }
 
     public function create(Request $request)
@@ -42,6 +42,6 @@ class SubjectsController extends Controller
 
     public function show(Subject $subject)
     {
-        return view('subjects.show', ['subject' => $subject]);
+        return view('internal.showsubject', ['subject' => $subject]);
     }
 }
