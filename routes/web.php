@@ -33,6 +33,11 @@ Route::prefix('internal')->middleware('can:access-internal')->group(function() {
     Route::get('/challenges/new', 'ChallengesController@new');
     Route::post('/challenges/create', 'ChallengesController@create')->name('challenges.create');
 
+    Route::get('/files', 'FilesController@index');
+    Route::get('/files/show', 'FilesController@show');
+    Route::get('/files/new', 'FilesController@new');
+    Route::post('/files/create', 'FilesController@create');
+
     Route::get('/passportclients', function() {
         return view('internal.clientmanager');
     });
