@@ -23,5 +23,12 @@ class FilesController extends Controller
 
     public function create(Request $request)
     {
+        if ($request->hasFile('file')) {
+            $filePath = $request->file('file')->store('public/files');
+
+            return $filePath;
+        }
+
+        return view('internal.newfile');
     }
 }

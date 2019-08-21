@@ -36,7 +36,7 @@ Route::prefix('internal')->middleware('can:access-internal')->group(function() {
     Route::get('/files', 'FilesController@index');
     Route::get('/files/show', 'FilesController@show');
     Route::get('/files/new', 'FilesController@new');
-    Route::post('/files/create', 'FilesController@create');
+    Route::post('/files/create', 'FilesController@create')->name('internal.createfile');
 
     Route::get('/passportclients', function() {
         return view('internal.clientmanager');
