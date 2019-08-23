@@ -2,7 +2,7 @@
 
 @section('content')
 <div>
-  <div class="uk-background-primary">
+  <div class="dark-blue-bg">
     <div class="uk-container uk-padding uk-light uk-text-center uk-text-justify uk-width-large">
       <h1>Learn science</h1>
       <p>Challenges in math, physics and chemistry to learn the theory behind the experiments.</p>
