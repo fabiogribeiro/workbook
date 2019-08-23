@@ -11,12 +11,12 @@
       <ul class="uk-nav-default uk-nav-parent-icon uk-list-divider" uk-nav="multiple: true; duration: 300">
         @foreach ($challengesBySkill as $skill => $challenges)
           <li class="uk-parent {{ $skill === $challenge->skill ? 'uk-open uk-active' : '' }}">
-            <a href="#">
+            <a class="uk-text-secondary {{ $skill === $challenge->skill ? 'uk-text-bold' : '' }}" href="#">
               {{ $skill }}
             </a>
             <ul class="uk-nav-sub uk-list uk-list-bullet challenge-list-bullet">
               @foreach ($challenges as $currentChallenge)
-                <li class="{{ ($challenge->id === $currentChallenge->id ? 'uk-active' : '')
+                <li class="{{ ($challenge->id === $currentChallenge->id ? 'uk-active uk-text-bold selected' : '')
                             . ($currentChallenge->solved ? ' solved' : '') }}">
                   <a class="uk-text-truncate" href="{{ route('challenges.show', ['domain' => $subject->domain,
                                                         'subject' => $subject->slug,
@@ -31,8 +31,8 @@
       </ul>
     </div>
     <div class="uk-width-2-3">
-      <h2>{{ $challenge->title }}</h2>
       <div class="uk-background-default uk-padding-small">
+        <h2>{{ $challenge->title }}</h2>
         {!! $challenge->body_html !!}
 
         <div class="uk-margin-large-top">
