@@ -3,7 +3,7 @@
 @section('content')
 <div>
   <div class="uk-background-primary">
-    <div class="home-panel uk-container uk-padding uk-light uk-text-center uk-text-justify uk-width-large">
+    <div class="uk-container uk-padding uk-light uk-text-center uk-text-justify uk-width-large">
       <h1>Learn science</h1>
       <p>Challenges in math, physics and chemistry to learn the theory behind the experiments.</p>
         <a href="{{ route('dashboard') }}">
@@ -14,17 +14,30 @@
     </div>
   </div>
 
-  <div class="home-panel">
-    <div class="home-register default-card">
-      <form method="POST" action="{{ route('register') }}">
+  <div class="uk-container uk-padding uk-text-center uk-text-justify uk-width-large">
+    <div class="">
+      <form class="uk-form-stacked" method="POST" action="{{ route('register') }}">
         @csrf
-        <h2>First time visiting?</h2>
-        <h4>Create an account to save your progress</h4>
-        <input class="default-input" name="email" placeholder="Email" type="email" required/>
-        <input class="default-input" name="password" placeholder="Password" type="password" required/>
-        <button type="submit" class="uk-button uk-button-secondary">
-          Register
-        </button>
+        <h3>First time visiting?</h3>
+        <p>Create an account to save your progress</p>
+
+        <div class="uk-margin">
+          <div class="uk-form-controls">
+            <input class="uk-input" id="email" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <div class="uk-form-controls">
+            <input class="uk-input" id="password" type="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
+          </div>
+        </div>
+
+        <div>
+          <button class="uk-button uk-button-primary" type="submit">
+            {{ __('Register') }}
+          </button>
+        </div>
       </form>
     </div>
   </div>
