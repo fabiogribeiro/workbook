@@ -39,7 +39,7 @@
       </button>
         
       @if (Route::has('password.request'))
-        <a class="uk-text-small" href="{{ route('password.request') }}">
+        <a class="uk-text-small" href="{{ route('login') }}">
           {{ __('Have an account? Log in') }}
         </a>
       @endif
