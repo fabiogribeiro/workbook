@@ -92,3 +92,12 @@
     }
   }
 }
+
+.uk-parent > a > .uk-icon {
+  float: right;
+}
+
+.uk-parent.uk-open > a > .uk-icon {
+  color: #39f;
+  transform: rotate(180deg);
+}

@@ -11,8 +11,10 @@
       <ul class="uk-nav-default uk-nav-parent-icon uk-list-divider" uk-nav="multiple: true; duration: 300">
         @foreach ($challengesBySkill as $skill => $challenges)
           <li class="uk-parent {{ $skill === $challenge->skill ? 'uk-open uk-active' : '' }}">
-            <a class="uk-text-secondary {{ $skill === $challenge->skill ? 'uk-text-bold' : '' }}" href="#">
+            <a class="{{ $skill === $challenge->skill ? 'uk-text-bold' : 'uk-text-secondary' }}" href="#">
               {{ $skill }}
+
+              <span uk-icon="icon: triangle-down"></span>
             </a>
             <ul class="uk-nav-sub uk-list uk-list-bullet challenge-list-bullet">
               @foreach ($challenges as $currentChallenge)
