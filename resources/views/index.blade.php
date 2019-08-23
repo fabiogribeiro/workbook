@@ -2,14 +2,16 @@
 
 @section('content')
 <div>
-  <div class="home-panel">
-    <h1>Learn science</h1>
-    <p>Challenges in math, physics and chemistry to learn the theory behind the experiments.</p>
-      <a href="{{ route('dashboard') }}">
-        <button class="uk-button uk-button-primary">
-          Get started
-        </button>
-      </a>
+  <div class="uk-background-primary">
+    <div class="home-panel uk-container uk-padding uk-light uk-text-center uk-text-justify uk-width-large">
+      <h1>Learn science</h1>
+      <p>Challenges in math, physics and chemistry to learn the theory behind the experiments.</p>
+        <a href="{{ route('dashboard') }}">
+          <button class="uk-button uk-button-primary">
+            Get started
+          </button>
+        </a>
+    </div>
   </div>
 
   <div class="home-panel">

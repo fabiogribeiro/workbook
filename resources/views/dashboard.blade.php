@@ -2,6 +2,8 @@
 
 @section('content')
 
-@include('partials.subjects')
+<div class="uk-padding">
+  @include('partials.subjects')
+</div>
 
 @endsection
