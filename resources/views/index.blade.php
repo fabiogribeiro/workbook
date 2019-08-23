@@ -19,7 +19,7 @@
       <form class="uk-form-stacked" method="POST" action="{{ route('register') }}">
         @csrf
         <h3>First time visiting?</h3>
-        <p>Create an account to save your progress</p>
+        <p class="uk-text-muted">Create an account to save your progress</p>
 
         <div class="uk-margin">
           <div class="uk-form-controls">
