@@ -17,7 +17,7 @@
 export default {
   props: ['question'],
   computed: {
-    isMultipleChoice: function() {
+    isMultipleChoice: function () {
       return !!this.question.question_data.choices
     }
   }
