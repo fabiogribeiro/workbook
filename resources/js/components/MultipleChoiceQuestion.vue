@@ -1,5 +1,5 @@
 <template>
-<div>
+<div ref="mathElement">
   <form v-if="!isSolved" v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
     <div>
       <ul class="uk-list">
@@ -67,7 +67,10 @@ export default {
       }).catch(function (error) {
         console.log(error);
       })
-    }
+    },
+  },
+  mounted: function () {
+    window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub,this.$refs.mathElement])
   }
 }
 </script>
