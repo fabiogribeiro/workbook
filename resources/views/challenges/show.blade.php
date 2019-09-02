@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="uk-container uk-padding">
+<div class="uk-container uk-padding gray-bg">
   <div uk-grid>
     <div class="uk-width-1-1 uk-width-1-3@m">
       <div class="uk-card uk-card-default uk-card-body uk-margin-medium-bottom">

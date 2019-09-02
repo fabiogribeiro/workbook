@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="uk-padding">
+<div class="uk-padding gray-bg">
   @include('partials.subjects')
 </div>
 

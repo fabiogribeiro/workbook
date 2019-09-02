@@ -105,7 +105,7 @@
       </div>
     </div>
 
-    <main class="{{ Request::is('/') ? '' : 'gray-bg' }}">
+    <main>
       @yield('content')
     </main>
   </div>
