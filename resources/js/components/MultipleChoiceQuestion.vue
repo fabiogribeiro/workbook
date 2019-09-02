@@ -9,7 +9,7 @@
         >{{ String.fromCharCode(index + 65) + '. ' + choice }}</li>
       </ul>
       <br>
-      <select class="uk-select uk-form-width-medium">
+      <select class="uk-select uk-width-2-3 uk-width-1-3@m">
         <option
           v-for="(choice, index) in question.question_data.choices"
           v-bind:key="index"
@@ -28,7 +28,7 @@
       >{{ String.fromCharCode(index + 65) + '. ' + choice }}</li>
     </ul>
     <br>
-    <select class="uk-select uk-form-width-medium" disabled>
+    <select class="uk-select uk-width-2-3 uk-width-1-3@m">
       <option
         v-for="(choice, index) in question.question_data.choices"
         v-bind:key="index"

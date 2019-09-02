@@ -3,7 +3,7 @@
   <form v-if="!isSolved" v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
     <div>
       <input
-        class="uk-input uk-form-width-medium"
+        class="uk-input uk-width-2-3 uk-width-1-3@m"
         v-bind:disabled="isSolved"
         type="text"
         v-model="answer"
@@ -16,7 +16,7 @@
   </form>
   <div v-else>
     <input
-      class="uk-input uk-form-width-medium"
+      class="uk-input uk-width-2-3 uk-width-1-3@m"
       v-bind:disabled="isSolved"
       type="text"
       v-model="answer"
