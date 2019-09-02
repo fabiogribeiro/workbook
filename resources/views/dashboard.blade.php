@@ -20,10 +20,7 @@
         <a class="uk-link-reset uk-button-text" href="{{ route('challenges.index', ['domain' => $domain,
                                                                     'subject' => $subject->slug]) }}">
           <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-              <h4 class="uk-text-truncate">{{ $subject->title }}</h4>
-              <p class="uk-text-meta uk-text-truncate">Lorem ipsum</p>
-            </div>
+            @include('partials/subjectcard', ['title' => $subject->title, 'description' => 'Lorem ipsum'])
           </div>
         </a>
         @endforeach

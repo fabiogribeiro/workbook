@@ -4,9 +4,8 @@
 <div class="uk-container uk-padding gray-bg">
   <div uk-grid>
     <div class="uk-width-1-1 uk-width-1-3@m">
-      <div class="uk-card uk-card-default uk-card-body uk-margin-medium-bottom">
-        <h4>{{ $subject->title }}</h4>
-        <p class="uk-text-meta">Lorem ipsum</p>
+      <div class="uk-margin-bottom">
+        @include('partials/subjectcard', ['title' => $subject->title, 'description' => 'Lorem ipsum'])
       </div>
       <ul class="uk-nav-default uk-nav-parent-icon uk-list-divider" uk-nav="multiple: true; duration: 300">
         @foreach ($challengesBySkill as $skill => $challenges)
