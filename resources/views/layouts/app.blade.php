@@ -31,7 +31,7 @@
 </head>
 <body>
   <div id="app">
-    <div class="{{ Request::is('/') ? 'dark-blue-bg' : 'uk-background-primary' }}">
+    <div class="uk-background-secondary">
       <div class="uk-container">
         <nav uk-navbar="delay-hide: 200" class="uk-light">
           <div class="uk-navbar-left">
