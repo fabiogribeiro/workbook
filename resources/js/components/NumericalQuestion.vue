@@ -1,14 +1,17 @@
 <template>
   <div ref="mathElement">
     <form v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
-      <div>
-        <input
-          class="uk-input uk-width-2-3 uk-width-1-3@m"
-          v-bind:disabled="isSolved"
-          type="text"
-          v-model="answer"
-          required
-        >
+      <div class="uk-margin">
+        <div class="uk-inline uk-width-2-3 uk-width-1-3@m">
+          <span class="uk-form-icon" uk-icon="icon: pencil"></span>
+          <input
+            class="uk-input"
+            :disabled="isSolved"
+            type="text"
+            v-model="answer"
+            required
+          >
+        </div>
         <div v-if="!isSolved" class="uk-inline">
           <button v-if="!isUpdating" key="default" class="uk-button uk-button-primary">Submit</button>
           <div v-else uk-spinner key="updating" class="uk-margin-medium-left"></div>
