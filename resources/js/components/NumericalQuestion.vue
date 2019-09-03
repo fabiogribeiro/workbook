@@ -1,31 +1,25 @@
 <template>
-<div ref="mathElement">
-  <form v-if="!isSolved" v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
-    <div>
-      <input
-        class="uk-input uk-width-2-3 uk-width-1-3@m"
-        v-bind:disabled="isSolved"
-        type="text"
-        v-model="answer"
-        placeholder="Answer"
-        required
-      >
-      <button v-if="!isUpdating" key="default" class="uk-button uk-button-primary">Submit</button>
-      <div v-else uk-spinner key="updating" class="uk-margin-medium-left"></div>
-    </div>
-  </form>
-  <div v-else>
-    <input
-      class="uk-input uk-width-2-3 uk-width-1-3@m"
-      v-bind:disabled="isSolved"
-      type="text"
-      v-model="answer"
-      placeholder="Answer"
-      required
-    >
-    <button class="uk-button uk-button-secondary">Solved</button>
+  <div ref="mathElement">
+    <form v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
+      <div>
+        <input
+          class="uk-input uk-width-2-3 uk-width-1-3@m"
+          v-bind:disabled="isSolved"
+          type="text"
+          v-model="answer"
+          required
+        >
+        <div v-if="!isSolved" class="uk-inline">
+          <button v-if="!isUpdating" key="default" class="uk-button uk-button-primary">Submit</button>
+          <div v-else uk-spinner key="updating" class="uk-margin-medium-left"></div>
+        </div>
+        <div v-else>
+          <br>
+          <div class="uk-text-success">Correct answer</div>
+        </div>
+      </div>
+    </form>
   </div>
-</div>
 </template>
 
 <script>
