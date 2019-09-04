@@ -1,7 +1,7 @@
 <template>
   <div ref="mathElement">
     <form v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
-      <div class="uk-margin">
+      <div>
         <div class="uk-inline uk-width-2-3 uk-width-1-3@m">
           <span class="uk-form-icon" uk-icon="icon: pencil"></span>
           <input
@@ -30,9 +30,9 @@ export default {
   data() {
     return {
       action: '/api/questions/answer',
-      answer: '',
+      isSolved: this.question.solved,
       isUpdating: false,
-      isSolved: this.question.solved
+      answer: this.question.solved ? this.question.question_data.answer : '',
     }
   },
   props: ['question'],
@@ -56,6 +56,6 @@ export default {
   },
   mounted: function () {
     window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub,this.$refs.mathElement])
-  }
+  },
 }
 </script>

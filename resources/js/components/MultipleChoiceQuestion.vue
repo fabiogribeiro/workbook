@@ -9,7 +9,7 @@
           >{{ String.fromCharCode(index + 65) + '. ' + choice }}</li>
         </ul>
         <br>
-        <select :disabled="isSolved" class="uk-select uk-width-2-3 uk-width-1-3@m">
+        <select v-model="answer" :disabled="isSolved" class="uk-select uk-width-2-3 uk-width-1-3@m">
           <option
             v-for="(choice, index) in question.question_data.choices"
             v-bind:key="index"
@@ -34,9 +34,9 @@ export default {
   data() {
     return {
       action: '/api/questions/answer',
-      answer: '',
+      isSolved: this.question.solved,
+      answer: this.question.solved ? this.question.question_data.answer : 'A',
       isUpdating: false,
-      isSolved: this.question.solved
     }
   },
   props: ['question'],
@@ -60,7 +60,7 @@ export default {
   },
   mounted: function () {
     window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub,this.$refs.mathElement])
-  }
+  },
 }
 </script>
 
