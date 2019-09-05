@@ -1,6 +1,6 @@
 <template>
   <div ref="mathElement">
-    <form v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
+    <form v-on:submit.prevent="checkAnswer" method="POST" :action="formAction">
       <div>
         <div class="uk-inline uk-width-2-3 uk-width-1-3@m">
           <span class="uk-form-icon" uk-icon="icon: pencil"></span>
@@ -26,36 +26,9 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      action: '/api/questions/answer',
-      isSolved: this.question.solved,
-      isUpdating: false,
-      answer: this.question.solved ? this.question.question_data.answer : '',
-    }
-  },
-  props: ['question'],
-  methods: {
-    checkAnswer: function() {
-      var vm = this
-      vm.isUpdating = true
+import Question from './QuestionMixin';
 
-      axios.post(this.action, {
-        id: vm.question.id,
-        answer: vm.answer
-      }).then(function (response) {
-        setTimeout(function() {
-          vm.isSolved = true
-          vm.isUpdating = false
-        }, 500)
-      }).catch(function (error) {
-        console.log(error);
-      })
-    }
-  },
-  mounted: function () {
-    window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub,this.$refs.mathElement])
-  },
+export default {
+  mixins: [Question]
 }
 </script>

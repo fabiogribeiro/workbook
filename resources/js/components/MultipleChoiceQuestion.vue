@@ -1,20 +1,20 @@
 <template>
   <div ref="mathElement">
-    <form v-on:submit.prevent="checkAnswer" method="POST" action="/api/questions/answer">
+    <form v-on:submit.prevent="checkAnswer" method="POST" :action="formAction">
       <div>
         <ul class="uk-list">
           <li
             v-for="(choice, index) in question.question_data.choices"
             v-bind:key="index"
-          >{{ String.fromCharCode(index + 65) + '. ' + choice }}</li>
+          >{{ indexToChar(index) + '. ' + choice }}</li>
         </ul>
         <br>
         <select v-model="answer" :disabled="isSolved" class="uk-select uk-width-2-3 uk-width-1-3@m">
           <option
             v-for="(choice, index) in question.question_data.choices"
             v-bind:key="index"
-            v-bind:value="String.fromCharCode(index + 65)"
-          >{{ String.fromCharCode(index + 65) }}</option>
+            v-bind:value="indexToChar(index)"
+          >{{ indexToChar(index) }}</option>
         </select>
         <div v-if="!isSolved" class="uk-inline">
           <button v-if="!isUpdating" key="default" class="uk-button uk-button-primary">Submit</button>
@@ -30,37 +30,15 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      action: '/api/questions/answer',
-      isSolved: this.question.solved,
-      answer: this.question.solved ? this.question.question_data.answer : 'A',
-      isUpdating: false,
-    }
-  },
-  props: ['question'],
-  methods: {
-    checkAnswer: function() {
-      var vm = this
-      vm.isUpdating = true
+import Question from './QuestionMixin'
 
-      axios.post(this.action, {
-        id: vm.question.id,
-        answer: vm.answer
-      }).then(function (response) {
-        setTimeout(function() {
-          vm.isSolved = true
-          vm.isUpdating = false
-        }, 500)
-      }).catch(function (error) {
-        console.log(error);
-      })
-    },
-  },
-  mounted: function () {
-    window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub,this.$refs.mathElement])
-  },
+export default {
+  mixins: [Question],
+  methods: {
+    indexToChar: function (index) {
+      return String.fromCharCode(index + 65)
+    }
+  }
 }
 </script>
 
