@@ -9,10 +9,11 @@ class ApiChallengesController extends Controller
 {
   public function answerQuestion(Request $request)
   {
-    if ($request->user()) {
-      $user = $request->user();
+    $question = Question::find($request->id);
+    $answer = $request->answer;
+    $user = $request->user();
 
-      $question = Question::find($request->id);
+    if ($user && $this->isCorrectAnswer($question, $answer)) {
 
       $solvedQuestions = $user->solved_questions ?: [];
       $solvedQuestions[] = $question->id;
@@ -20,8 +21,20 @@ class ApiChallengesController extends Controller
 
       $user->solved_questions = $solvedQuestions;
       $user->save();
+
+      return ['result' => true];
     }
 
-    return ['result' => true];
+    return ['result' => false];
+  }
+
+  /**
+   * Simple answer checker
+   *
+   * @return bool
+   */
+  private function isCorrectAnswer($question, $answer)
+  {
+    return $question->question_data['answer'] == $answer;
   }
 }

@@ -49,6 +49,14 @@
             <ul class="uk-list uk-list-large uk-list-divider">
               @foreach ($challenge->questions as $question)
                 <li>
+                  @php
+                    // Hide answer in view if question not solved
+                    if (!$question->solved) {
+                        $newData = $question->question_data;
+                        $newData['answer'] = '';
+                        $question->question_data = $newData;
+                    }
+                  @endphp
                   <question-form v-bind:question="{{ $question }}">
                   </question-form>
                 </li>

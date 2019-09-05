@@ -14,6 +14,13 @@ class Question extends Model
      */
     protected $appends = ['solved'];
 
+     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = ['question_data' => 'array'];
+
     /**
      * Get the parent challenge for this question.
      */
@@ -32,23 +39,5 @@ class Question extends Model
         $solvedQuestions = Auth::check() ? Auth::user()->solved_questions : [];
 
         return in_array($this->id, $solvedQuestions);
-    }
-
-    /**
-     * Convert json string data to array and hide answer
-     * to the client if the question is not solved.
-     *
-     * @return array
-     */
-    public function getQuestionDataAttribute($value)
-    {
-        $data = json_decode($value);
-
-        if ($this->solved) {
-            return $data;
-        }
-
-        $data->answer = "";
-        return $data;
     }
 }
