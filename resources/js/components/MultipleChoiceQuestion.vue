@@ -24,6 +24,10 @@
           <br>
           <div class="uk-text-success">Correct answer</div>
         </div>
+        <div v-show="isFailed">
+          <br>
+          <div class="uk-text-warning">Wrong answer. Try again</div>
+        </div>
       </div>
     </form>
   </div>

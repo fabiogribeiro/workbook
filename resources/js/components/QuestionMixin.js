@@ -16,6 +16,9 @@ var Question = {
     },
     isUpdating: function () {
       return this.status === 'updating'
+    },
+    isFailed: function () {
+      return this.status === 'failed'
     }
   },
   methods: {
@@ -28,7 +31,12 @@ var Question = {
         answer: vm.answer
       }).then(function (response) {
         setTimeout(function() {
-          vm.status = 'solved'
+          var success = response.data.result
+
+          if (success)
+            vm.status = 'solved'
+          else
+            vm.status = 'failed'
         }, 500)
       }).catch(function (error) {
         console.log(error);
