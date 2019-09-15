@@ -17,13 +17,13 @@ $factory->define(App\Question::class, function (Faker $faker) {
             if ($isNumeric) {
                 $answer = $faker->randomFloat(2, -5, 5);
 
-                return json_encode(compact('answer'));
+                return compact('answer');
             }
             else {
                 $choices = ['A', 'B', 'C', 'D'];
                 $answer = $faker->randomElement($choices);
 
-                return json_encode(compact('choices', 'answer'));
+                return compact('choices', 'answer');
             }
         }
     ];
