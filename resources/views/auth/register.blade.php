@@ -5,7 +5,7 @@
   <div class="uk-display-block uk-width-1-1 uk-width-1-3@m uk-width-1-4@l uk-position-relative uk-margin-auto">
     <h2>{{ __('Register') }}</h2>
     
-    <form class="uk-form-stacked" method="POST" action="{{ route('login') }}">
+    <form class="uk-form-stacked" method="POST" action="{{ route('register') }}">
       @csrf
       
       <div class="uk-margin">
